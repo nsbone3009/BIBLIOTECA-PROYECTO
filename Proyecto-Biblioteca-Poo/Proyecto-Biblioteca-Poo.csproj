@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{163767A6-01AB-445D-85D3-F11D798F6F92}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Proyecto_Biblioteca_Poo</RootNamespace>
+    <AssemblyName>Proyecto-Biblioteca-Poo</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="csAjustarDataGridView.cs" />
+    <Compile Include="csConexionSQL.cs" />
+    <Compile Include="csEmail.cs" />
+    <Compile Include="csPrestamos.cs" />
+    <Compile Include="frmListaUsuariosAcceso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaUsuariosAcceso.Designer.cs">
+      <DependentUpon>frmListaUsuariosAcceso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfiguracionSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfiguracionSistema.Designer.cs">
+      <DependentUpon>frmConfiguracionSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeleccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeleccion.Designer.cs">
+      <DependentUpon>frmSeleccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmActualizarContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmActualizarContraseña.Designer.cs">
+      <DependentUpon>frmActualizarContraseña.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecuperarContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecuperarContraseña.Designer.cs">
+      <DependentUpon>frmRecuperarContraseña.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarODetallesDevolucionesLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarODetallesDevolucionesLibros.Designer.cs">
+      <DependentUpon>frmAgregarODetallesDevolucionesLibros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarODetallesLectores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarODetallesLectores.Designer.cs">
+      <DependentUpon>frmAgregarODetallesLectores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaDevolucionesLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaDevolucionesLibros.Designer.cs">
+      <DependentUpon>frmListaDevolucionesLibros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaLectores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaLectores.Designer.cs">
+      <DependentUpon>frmListaLectores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaLibros.Designer.cs">
+      <DependentUpon>frmListaLibros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarODetallesLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarODetallesLibros.Designer.cs">
+      <DependentUpon>frmAgregarODetallesLibros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarODetallesPrestamosLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarODetallesPrestamosLibros.Designer.cs">
+      <DependentUpon>frmAgregarODetallesPrestamosLibros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaPrestamosLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaPrestamosLibros.Designer.cs">
+      <DependentUpon>frmListaPrestamosLibros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPantallaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPantallaPrincipal.Designer.cs">
+      <DependentUpon>frmPantallaPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmValidacionEntrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmValidacionEntrada.Designer.cs">
+      <DependentUpon>frmValidacionEntrada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmActualizarContraseña.resx">
+      <DependentUpon>frmActualizarContraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfiguracionSistema.resx">
+      <DependentUpon>frmConfiguracionSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaUsuariosAcceso.resx">
+      <DependentUpon>frmListaUsuariosAcceso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecuperarContraseña.resx">
+      <DependentUpon>frmRecuperarContraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarODetallesDevolucionesLibros.resx">
+      <DependentUpon>frmAgregarODetallesDevolucionesLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarODetallesLectores.resx">
+      <DependentUpon>frmAgregarODetallesLectores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaDevolucionesLibros.resx">
+      <DependentUpon>frmListaDevolucionesLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaLectores.resx">
+      <DependentUpon>frmListaLectores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaLibros.resx">
+      <DependentUpon>frmListaLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarODetallesLibros.resx">
+      <DependentUpon>frmAgregarODetallesLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAgregarODetallesPrestamosLibros.resx">
+      <DependentUpon>frmAgregarODetallesPrestamosLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaPrestamosLibros.resx">
+      <DependentUpon>frmListaPrestamosLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPantallaPrincipal.resx">
+      <DependentUpon>frmPantallaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeleccion.resx">
+      <DependentUpon>frmSeleccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmValidacionEntrada.resx">
+      <DependentUpon>frmValidacionEntrada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
