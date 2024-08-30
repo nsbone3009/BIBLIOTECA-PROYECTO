@@ -43,7 +43,7 @@ namespace Proyecto_Biblioteca_Poo
         private void Comparar()
         {
             DateTime fechaActual = DateTime.Now.Date;
-            using (SqlConnection conexion = new SqlConnection(@"Server = DESKTOP-RJ6RQ3J\SQLEXPRESS; Database = Biblioteca; Integrated Security = True"))
+            using (SqlConnection conexion = new SqlConnection(@"Server = NIURLETH; Database = Biblioteca; Integrated Security = True"))
             {
 
                 conexion.Open();

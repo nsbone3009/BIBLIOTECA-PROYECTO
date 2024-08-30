@@ -27,7 +27,7 @@ namespace Proyecto_Biblioteca_Poo
             string consulta = "Select * from Devoluciones";
             csConexionSQL database = new csConexionSQL();
             dgvDevoluciones.DataSource = database.MostrarRegistros(consulta);
-            new csAjustarDataGridView().Ajustar(dgvDevoluciones);
+            //new csAjustarDataGridView().Ajustar(dgvDevoluciones);
         }
     }
 }

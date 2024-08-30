@@ -89,6 +89,9 @@
             // 
             this.dgvDevoluciones.AllowUserToAddRows = false;
             this.dgvDevoluciones.AllowUserToDeleteRows = false;
+            this.dgvDevoluciones.AllowUserToResizeColumns = false;
+            this.dgvDevoluciones.AllowUserToResizeRows = false;
+            this.dgvDevoluciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDevoluciones.BackgroundColor = System.Drawing.Color.White;
             this.dgvDevoluciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;

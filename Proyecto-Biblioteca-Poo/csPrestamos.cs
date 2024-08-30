@@ -36,7 +36,7 @@ namespace Proyecto_Biblioteca_Poo
         {
             try
             {
-                string consulta = "INSERT INTO Prestamos (id_ptm, cedula_ltr, isbn_lb, fecha_prestamo, fecha_devolucio_programada) VALUES (@id_ptm, @cedula_ltr, @isbn_lb, @fecha_prestamo, @fecha_devolucio_programada)";
+                string consulta = "INSERT INTO Prestamos (id_ptm, cedula_ltr, isbn_lb, fecha_prestamo, fecha_devolucio_programada, estado_ , aviso_) VALUES (@id_ptm, @cedula_ltr, @isbn_lb, @fecha_prestamo, @fecha_devolucio_programada, '"+1+"','"+0+"')";
                 conexionSQL.AbrirConexion();
                 SqlCommand comando = new SqlCommand(consulta, conexionSQL.Conexion);
                 comando.Parameters.AddWithValue("@id_ptm", id_ptm);

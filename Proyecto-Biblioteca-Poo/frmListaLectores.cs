@@ -25,7 +25,7 @@ namespace Proyecto_Biblioteca_Poo
             string consulta = "Select * from Lectores";
             csConexionSQL database = new csConexionSQL();
             dgvLectores.DataSource = database.MostrarRegistros(consulta);
-            new csAjustarDataGridView().Ajustar(dgvLectores);
+            //new csAjustarDataGridView().Ajustar(dgvLectores);
         }
         private void dgvLectores_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
