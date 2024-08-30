@@ -34,12 +34,12 @@ namespace Proyecto_Biblioteca_Poo
         {
             CargarDatos();
         }
-        public void CargarDatos()
+        private void CargarDatos()
         {
-            string consulta = "Select * from Prestamos";
+            string consulta = "select id_ptm,cedula_ltr,isbn_lb,fecha_prestamo,fecha_devolucio_programada from Prestamos where estado_ = 1";
             csConexionSQL database = new csConexionSQL();
             dgvPrestamos.DataSource = database.MostrarRegistros(consulta);
-            //new csAjustarDataGridView().Ajustar(dgvPrestamos);
+            new csAjustarDataGridView().Ajustar(dgvPrestamos);
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -61,6 +61,28 @@ namespace Proyecto_Biblioteca_Poo
         }
         private void btnEliminarPrestamo_Click(object sender, EventArgs e)
         {
+        }
+
+        private void dgvPrestamos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string consulta = dgvPrestamos.CurrentRow.Cells[2].Value.ToString();
+            string NuevaConsulta = "select L.titulo_lb,L.isbn_lb,Le.nombres_ltr,Le.cedula_ltr,D.fecha_prestamo,D.fecha_devolucion_programada from Devoluciones as D inner join[Libros] as L on D.isbn_lb=[L].isbn_lb inner join Lectores as Le  on d.cedula_ltr=[Le].cedula_ltr where D.isbn_lb='" + consulta + "'";
+            csConexionSQL conector = new csConexionSQL();
+            SqlDataReader lector = conector.SelectLeer(NuevaConsulta);
+            string Titulo, Isbn, nombre, cedula, fechaPrestamo, fechaDevolucion;
+            if (lector.Read())
+            {
+                frmAgregarODetallesDevolucionesLibros datitos = new frmAgregarODetallesDevolucionesLibros();
+                datitos.txtTitulo.Text = lector["titulo_lb"].ToString().Trim();
+                datitos.txtLector.Text = lector["nombres_ltr"].ToString();
+                datitos.txtCedula.Text = lector["cedula_ltr"].ToString().Trim();
+                datitos.txtISBN.Text = lector["isbn_lb"].ToString().Trim();
+                datitos.txtFechaPrestamo.Text = lector["fecha_prestamo"].ToString().Trim();
+                datitos.txtFechaDevolucion.Text = lector["fecha_devolucion_programada"].ToString().Trim();
+                datitos.txtFechaActual.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                datitos.ShowDialog();
+                this.Close();
+            }
         }
     }
 }

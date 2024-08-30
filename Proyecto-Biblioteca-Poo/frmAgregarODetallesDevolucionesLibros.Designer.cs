@@ -33,22 +33,22 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtAutor = new System.Windows.Forms.TextBox();
-            this.txtEditorial = new System.Windows.Forms.TextBox();
+            this.txtLector = new System.Windows.Forms.TextBox();
+            this.txtFechaPrestamo = new System.Windows.Forms.TextBox();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtFechaDevolucion = new System.Windows.Forms.TextBox();
             this.txtISBN = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtResume = new System.Windows.Forms.TextBox();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnEditarCampos = new System.Windows.Forms.Button();
+            this.btnDevolverLibros = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCedula = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtFechaActual = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbLibros
@@ -96,23 +96,23 @@
             this.label1.TabIndex = 54;
             this.label1.Text = "Libro (Titulo)";
             // 
-            // txtAutor
+            // txtLector
             // 
-            this.txtAutor.Enabled = false;
-            this.txtAutor.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAutor.Location = new System.Drawing.Point(45, 221);
-            this.txtAutor.Name = "txtAutor";
-            this.txtAutor.Size = new System.Drawing.Size(416, 35);
-            this.txtAutor.TabIndex = 52;
+            this.txtLector.Enabled = false;
+            this.txtLector.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLector.Location = new System.Drawing.Point(45, 221);
+            this.txtLector.Name = "txtLector";
+            this.txtLector.Size = new System.Drawing.Size(416, 35);
+            this.txtLector.TabIndex = 52;
             // 
-            // txtEditorial
+            // txtFechaPrestamo
             // 
-            this.txtEditorial.Enabled = false;
-            this.txtEditorial.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditorial.Location = new System.Drawing.Point(45, 306);
-            this.txtEditorial.Name = "txtEditorial";
-            this.txtEditorial.Size = new System.Drawing.Size(206, 35);
-            this.txtEditorial.TabIndex = 51;
+            this.txtFechaPrestamo.Enabled = false;
+            this.txtFechaPrestamo.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaPrestamo.Location = new System.Drawing.Point(45, 306);
+            this.txtFechaPrestamo.Name = "txtFechaPrestamo";
+            this.txtFechaPrestamo.Size = new System.Drawing.Size(206, 35);
+            this.txtFechaPrestamo.TabIndex = 51;
             // 
             // txtTitulo
             // 
@@ -134,14 +134,14 @@
             this.label6.TabIndex = 63;
             this.label6.Text = "Fecha Programada\r\n";
             // 
-            // textBox2
+            // txtFechaDevolucion
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(279, 306);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(217, 35);
-            this.textBox2.TabIndex = 62;
+            this.txtFechaDevolucion.Enabled = false;
+            this.txtFechaDevolucion.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaDevolucion.Location = new System.Drawing.Point(279, 306);
+            this.txtFechaDevolucion.Name = "txtFechaDevolucion";
+            this.txtFechaDevolucion.Size = new System.Drawing.Size(217, 35);
+            this.txtFechaDevolucion.TabIndex = 62;
             // 
             // txtISBN
             // 
@@ -203,25 +203,25 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // btnEditarCampos
+            // btnDevolverLibros
             // 
-            this.btnEditarCampos.BackColor = System.Drawing.Color.Transparent;
-            this.btnEditarCampos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEditarCampos.BackgroundImage")));
-            this.btnEditarCampos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditarCampos.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEditarCampos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnEditarCampos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnEditarCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditarCampos.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarCampos.ForeColor = System.Drawing.Color.White;
-            this.btnEditarCampos.Location = new System.Drawing.Point(590, 450);
-            this.btnEditarCampos.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.btnEditarCampos.Name = "btnEditarCampos";
-            this.btnEditarCampos.Size = new System.Drawing.Size(124, 62);
-            this.btnEditarCampos.TabIndex = 68;
-            this.btnEditarCampos.Text = "Devolver Libro";
-            this.btnEditarCampos.UseVisualStyleBackColor = false;
-            this.btnEditarCampos.Click += new System.EventHandler(this.btnEditarCampos_Click);
+            this.btnDevolverLibros.BackColor = System.Drawing.Color.Transparent;
+            this.btnDevolverLibros.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDevolverLibros.BackgroundImage")));
+            this.btnDevolverLibros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDevolverLibros.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDevolverLibros.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDevolverLibros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDevolverLibros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDevolverLibros.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDevolverLibros.ForeColor = System.Drawing.Color.White;
+            this.btnDevolverLibros.Location = new System.Drawing.Point(590, 450);
+            this.btnDevolverLibros.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.btnDevolverLibros.Name = "btnDevolverLibros";
+            this.btnDevolverLibros.Size = new System.Drawing.Size(124, 62);
+            this.btnDevolverLibros.TabIndex = 68;
+            this.btnDevolverLibros.Text = "Devolver Libro";
+            this.btnDevolverLibros.UseVisualStyleBackColor = false;
+            this.btnDevolverLibros.Click += new System.EventHandler(this.btnDevolverLibros_Click);
             // 
             // btnBuscar
             // 
@@ -239,6 +239,7 @@
             this.btnBuscar.TabIndex = 70;
             this.btnBuscar.Text = "Buscar Prestamo";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label7
             // 
@@ -251,14 +252,14 @@
             this.label7.TabIndex = 72;
             this.label7.Text = "Cedula";
             // 
-            // textBox3
+            // txtCedula
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(485, 221);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(247, 35);
-            this.textBox3.TabIndex = 71;
+            this.txtCedula.Enabled = false;
+            this.txtCedula.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedula.Location = new System.Drawing.Point(485, 221);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(247, 35);
+            this.txtCedula.TabIndex = 71;
             // 
             // label3
             // 
@@ -271,14 +272,14 @@
             this.label3.TabIndex = 74;
             this.label3.Text = "Fecha Actual";
             // 
-            // textBox1
+            // txtFechaActual
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(524, 306);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 35);
-            this.textBox1.TabIndex = 73;
+            this.txtFechaActual.Enabled = false;
+            this.txtFechaActual.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaActual.Location = new System.Drawing.Point(524, 306);
+            this.txtFechaActual.Name = "txtFechaActual";
+            this.txtFechaActual.Size = new System.Drawing.Size(208, 35);
+            this.txtFechaActual.TabIndex = 73;
             // 
             // frmAgregarODetallesDevolucionesLibros
             // 
@@ -287,23 +288,23 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(780, 560);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtFechaActual);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnEditarCampos);
+            this.Controls.Add(this.btnDevolverLibros);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtResume);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtFechaDevolucion);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtISBN);
-            this.Controls.Add(this.txtAutor);
-            this.Controls.Add(this.txtEditorial);
+            this.Controls.Add(this.txtLector);
+            this.Controls.Add(this.txtFechaPrestamo);
             this.Controls.Add(this.txtTitulo);
             this.Controls.Add(this.lbLibros);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -321,21 +322,21 @@
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.TextBox txtAutor;
-        public System.Windows.Forms.TextBox txtEditorial;
+        public System.Windows.Forms.TextBox txtLector;
+        public System.Windows.Forms.TextBox txtFechaPrestamo;
         public System.Windows.Forms.TextBox txtTitulo;
         public System.Windows.Forms.Label label6;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox txtFechaDevolucion;
         public System.Windows.Forms.TextBox txtISBN;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label9;
         public System.Windows.Forms.TextBox txtResume;
         public System.Windows.Forms.Button btnCerrar;
-        public System.Windows.Forms.Button btnEditarCampos;
+        public System.Windows.Forms.Button btnDevolverLibros;
         private System.Windows.Forms.Button btnBuscar;
         public System.Windows.Forms.Label label7;
-        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox txtCedula;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox txtFechaActual;
     }
 }
