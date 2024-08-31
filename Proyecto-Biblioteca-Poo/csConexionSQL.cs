@@ -12,11 +12,13 @@ namespace Proyecto_Biblioteca_Poo
     internal class csConexionSQL
     {
         // Cadena de conexión que especifica el servidor, base de datos, y las credenciales de SQL Server.
-        private string cadenaConexion = @"Server=NIURLETH; Database=Biblioteca; User Id=admin; Password=admin;";
+        private string cadenaConexion = @"Password=111; Persist Security Info=False;User ID=yair;Initial Catalog=Biblioteca; Data Source=DESKTOP-GV7UK1D\SQLEXPRESS";
         private SqlConnection conexion;  // Objeto SqlConnection para manejar la conexión con SQL Server.
 
         // Propiedad que permite acceder al objeto SqlConnection desde fuera de la clase.
+
         public SqlConnection Conexion { get { return conexion; } }
+        public string Cedula;
 
         // Constructor de la clase que inicializa el objeto SqlConnection con la cadena de conexión.
         public csConexionSQL()
@@ -69,6 +71,104 @@ namespace Proyecto_Biblioteca_Poo
         public void AbrirConexion()
         {
             conexion.Open();                                          // Abre la conexión.
+        }
+        public static SqlConnection GetConnection()
+        {
+            SqlConnection conexion = new SqlConnection(@"Password=111;Persist Security Info=False;User ID=yair;Initial Catalog=Biblioteca;Data Source=DESKTOP-GV7UK1D\SQLEXPRESS");
+            conexion.Open();
+            return conexion;
+        }
+
+        public class ResultadoLogin
+        {
+            public bool EsValido { get; set; }
+            public string Rol { get; set; }
+        }
+
+        public bool VerificarLogin(string usuario, string contraseña)
+        {
+            using (SqlConnection conexio = GetConnection())
+            {
+                string consulta = @"
+                    SELECT usuario_crd, contraseña_crd, cedula_usr 
+                    FROM Credenciales 
+                    WHERE usuario_crd = @usuario AND contraseña_crd = @contraseña;";
+
+                using (SqlCommand comando = new SqlCommand(consulta, conexio))
+                {
+                    comando.Parameters.AddWithValue("@usuario", usuario);
+                    comando.Parameters.AddWithValue("@contraseña", contraseña);
+
+                    using (SqlDataReader leer = comando.ExecuteReader())
+                    {
+                        if (leer.Read())
+                        {
+                            Cedula = leer["cedula_usr"].ToString();
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        public string ObtenerRolUsuario(string cedula)
+        {
+            string rol = string.Empty;
+            using (SqlConnection conexio = GetConnection())
+            {
+                string consulta = @"
+                    SELECT correo_usr, rol_usr 
+                    FROM Credenciales AS C 
+                    INNER JOIN [Usuarios] AS U ON C.cedula_usr = U.cedula_usr 
+                    WHERE C.cedula_usr = @cedula";
+
+                using (SqlCommand comando = new SqlCommand(consulta, conexio))
+                {
+                    comando.Parameters.AddWithValue("@cedula", cedula.Trim());
+                    using (SqlDataReader leer = comando.ExecuteReader())
+                    {
+                        if (leer.Read())
+                        {
+                            rol = leer["rol_usr"].ToString();
+                        }
+                    }
+                }
+            }
+            return rol.Trim();
+        }
+        public void ActualizarContraseña(string correo, string NuevaClave)
+        {
+            string consulta = " select cedula_usr from Usuarios where correo_usr='" + correo + "'";
+            conexion.Open();
+            SqlCommand comandos = new SqlCommand(consulta, conexion);
+
+            SqlDataReader lector = comandos.ExecuteReader();
+
+            if (lector.Read())
+            {
+                Cedula = lector["cedula_usr"].ToString();
+            }
+            lector.Close();
+            string consulta01 = "update Credenciales set contraseña_crd='" + NuevaClave + "'where cedula_usr='" + Cedula + "'";
+            SqlCommand comandos01 = new SqlCommand(consulta01, conexion);
+            comandos01.ExecuteReader();
+            MessageBox.Show("Datos Actualizados");
+            conexion.Close();
+        }
+        public bool VerificarCorreoSQL(string correo)
+        {
+            string consulta = "select COUNT(*) from Usuarios where correo_usr='" + correo + "'";
+            bool ExisteCorreo = false;
+            conexion.Open();
+            SqlCommand comands = new SqlCommand(consulta, conexion);
+            int contador = (int)comands.ExecuteScalar();
+            ExisteCorreo = contador > 0;
+            conexion.Close();
+            return ExisteCorreo;
         }
     }
 }

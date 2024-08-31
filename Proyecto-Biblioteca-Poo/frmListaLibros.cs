@@ -24,7 +24,7 @@ namespace Proyecto_Biblioteca_Poo
 
         private void frmListaLibros_Load(object sender, EventArgs e)
         {
-            string consulta = "Select * from Libros";
+            string consulta = "Select isbn_lb, titulo_lb, autor_es_lb, editorial_lb, genero_lb, año_publicacion_lb, cantidad_lb, sinopsis_lb from Libros";
             csConexionSQL database = new csConexionSQL();
             dgvLibros.DataSource = database.MostrarRegistros(consulta);
             new csAjustarDataGridView().Ajustar(dgvLibros);

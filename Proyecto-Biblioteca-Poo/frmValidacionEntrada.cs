@@ -55,8 +55,7 @@ namespace Proyecto_Biblioteca_Poo
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            new frmPantallaPrincipal().Show();
-            this.Hide();
+            Ingreso(txtUsuario.Text, txtContraseña.Text);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -72,6 +71,40 @@ namespace Proyecto_Biblioteca_Poo
         private void lbOlvidoContraseña_Click(object sender, EventArgs e)
         {
             new frmRecuperarContraseña().ShowDialog();
+        }
+        private void Ingreso(string usu, string contra)
+        {
+            csConexionSQL conexion = new csConexionSQL();
+            if (conexion.VerificarLogin(usu, contra))
+            {
+                string cedulaUsuario = conexion.Cedula;
+                string rol = conexion.ObtenerRolUsuario(cedulaUsuario);
+
+                frmPantallaPrincipal frm = new frmPantallaPrincipal();
+
+                if (rol == "Bibliotecario")
+                {
+                    frm.btnAdministracion.Visible = false;
+                    frm.btnAdministracion.Enabled = false;
+                }
+
+                frm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Credenciales incorrectas");
+            }
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) txtContraseña.Focus();
+        }
+
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) Ingreso(txtUsuario.Text, txtContraseña.Text);
         }
     }
 }

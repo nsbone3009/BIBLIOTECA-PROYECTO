@@ -284,13 +284,13 @@
         private System.Windows.Forms.Label lbPrestamosLibros;
         private System.Windows.Forms.Label lbListaLibros;
         private System.Windows.Forms.Label lbDevolucionesLibros;
-        private System.Windows.Forms.Button btnAdministracion;
-        private System.Windows.Forms.Panel plPantalla;
         private System.Windows.Forms.Label lbConfiguracion;
         private System.Windows.Forms.Label lbListaLectores;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Label lbUsuarios;
         public System.Windows.Forms.PictureBox ptboxLogo;
         public System.Windows.Forms.Label lbNombreEmpresa;
+        public System.Windows.Forms.Panel plPantalla;
+        public System.Windows.Forms.Button btnAdministracion;
     }
 }
