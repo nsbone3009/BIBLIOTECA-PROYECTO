@@ -38,6 +38,7 @@ namespace Proyecto_Biblioteca_Poo
                 }
                 catch { }
             }
+            conexion.CerrarConexion();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -71,6 +72,7 @@ namespace Proyecto_Biblioteca_Poo
                 frmPantallaPrincipal frm = Owner as frmPantallaPrincipal;
                 frm.ptboxLogo.BackgroundImage = bitmap;
             }
+
         }
 
         private void btnGuardarCampos_Click(object sender, EventArgs e)

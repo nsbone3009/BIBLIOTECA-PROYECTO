@@ -47,6 +47,7 @@
     <Compile Include="csAjustarDataGridView.cs" />
     <Compile Include="csConexionSQL.cs" />
     <Compile Include="csEmail.cs" />
+    <Compile Include="csLLenarDataGridView.cs" />
     <Compile Include="csPrestamos.cs" />
     <Compile Include="frmListaUsuariosAcceso.cs">
       <SubType>Form</SubType>
