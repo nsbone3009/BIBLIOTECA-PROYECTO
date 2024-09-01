@@ -165,9 +165,9 @@
             // 
             this.ptboxLogo.BackColor = System.Drawing.Color.Transparent;
             this.ptboxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptboxLogo.Location = new System.Drawing.Point(71, 106);
+            this.ptboxLogo.Location = new System.Drawing.Point(12, 106);
             this.ptboxLogo.Name = "ptboxLogo";
-            this.ptboxLogo.Size = new System.Drawing.Size(391, 374);
+            this.ptboxLogo.Size = new System.Drawing.Size(512, 374);
             this.ptboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptboxLogo.TabIndex = 10;
             this.ptboxLogo.TabStop = false;

@@ -9,28 +9,26 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
-using System.Drawing.Imaging;
+
 
 namespace Proyecto_Biblioteca_Poo
 {
     public partial class frmConfiguracionSistema : Form
     {
-        static SqlConnection Conexion = new SqlConnection(@"Server = NIURLETH; Database = Biblioteca; Integrated Security = True");
-        
+        static csConexionSQL conexion = new csConexionSQL();
         public frmConfiguracionSistema()
         {
             InitializeComponent();
         }
-
-        private void frmConfiguracionSistema_Load(object sender, EventArgs e)
+        public void Mostrar()
         {
-            csConexionSQL conexion = new csConexionSQL();
             string consulta1 = "Select * from Logo where id_imagen = 1";
             SqlDataReader leer = conexion.SelectLeer(consulta1);
             if (leer.Read())
             {
                 try
                 {
+                    txtNombreEmpresa.Text = leer["nombre_lg"].ToString().Trim();
                     MemoryStream ImgMemoria = new MemoryStream((byte[])leer["imagen_lg"]);
                     Bitmap bitmap = new Bitmap(ImgMemoria);
                     frmPantallaPrincipal frm = Owner as frmPantallaPrincipal;
@@ -38,57 +36,43 @@ namespace Proyecto_Biblioteca_Poo
                 }
                 catch { }
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog Imagen = new OpenFileDialog();
-            Imagen.Filter = "archivos de imagen (*png;)|*png;";
-
-            if (Imagen.ShowDialog() == DialogResult.OK)
-            {
-                ptbxImagen.Image = Image.FromFile(Imagen.FileName);
-            }
-
-            MemoryStream espacio = new MemoryStream(); //Dar espacio de memoria
-            ptbxImagen.Image.Save(espacio, ImageFormat.Png); // Guardar la imagen del Pb en el espacio de memoria en formato JPEG
-            byte[] Convertir = espacio.ToArray(); // Convertir la imagen guardada en memoria a un arreglo de bytes
-
-            Conexion.Open();
-            string consulta = "update logo set imagen_lg = @imagen where id_imagen = 1";
-            SqlCommand Comando = new SqlCommand(consulta, Conexion);
-            Comando.Parameters.AddWithValue("Imagen", Convertir); // Agregar el parámetro @Imagen con el arreglo de bytes convertido de la imagen
-            Comando.ExecuteNonQuery(); //Ejecutar el comando
-            Conexion.Close();
-
-            csConexionSQL conexion = new csConexionSQL();
-            string consulta1 = "Select * from Logo where id_imagen = 1";
-            SqlDataReader leer = conexion.SelectLeer(consulta1);
-            if (leer.Read())
-            {
-                MemoryStream ImgMemoria = new MemoryStream((byte[])leer["imagen_lg"]);
-                Bitmap bitmap = new Bitmap(ImgMemoria);
-                frmPantallaPrincipal frm = Owner as frmPantallaPrincipal;
-                frm.ptboxLogo.BackgroundImage = bitmap;
-            }
+            conexion.CerrarConexion();
         }
 
         private void btnGuardarCampos_Click(object sender, EventArgs e)
         {
-            string consulta = "update logo set nombre_lg = '"+ txtNombreEmpresa.Text +"' where id_imagen = 1";
-            Conexion.Open();
-            SqlCommand Comando = new SqlCommand(consulta, Conexion);
-            Comando.ExecuteNonQuery(); //Ejecutar el comando
-            Conexion.Close();
+            string consulta = "Update logo set nombre_lg = '" + txtNombreEmpresa.Text + "' where id_imagen = 1";
+            conexion.Update(consulta);
+            frmPantallaPrincipal frm = Owner as frmPantallaPrincipal;
+            frm.MostrarLogoNombre();
+            btnGuardarCampos.Enabled = false;
+            txtNombreEmpresa.Enabled = false;
+        }
 
-            csConexionSQL conexion = new csConexionSQL();
-            string consulta1 = "Select * from Logo where id_imagen = 1";
-            SqlDataReader leer = conexion.SelectLeer(consulta1);
-            if (leer.Read())
+        private void btnEditarCampos_Click(object sender, EventArgs e)
+        {
+            btnGuardarCampos.Enabled = true;
+            txtNombreEmpresa.Enabled = true;
+        }
+
+        private void frmConfiguracionSistema_Load(object sender, EventArgs e)
+        {
+            btnGuardarCampos.Enabled = false;
+            txtNombreEmpresa.Enabled = false;
+        }
+
+        private void btnCambiarLogo_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog Imagen = new OpenFileDialog();
+            Imagen.Filter = "archivos de imagen (*png;)|*png;";
+            if (Imagen.ShowDialog() == DialogResult.OK) 
             {
-                frmPantallaPrincipal frm = Owner as frmPantallaPrincipal;
-                frm.lbNombreEmpresa.Text = leer["nombre_lg"].ToString();
+                ptbxImagen.BackgroundImage = null;
+                ptbxImagen.Image = Image.FromFile(Imagen.FileName);
+                new csGuardarImagenDatabase().GuardarImagen(ptbxImagen);
             }
+            frmPantallaPrincipal frm = Owner as frmPantallaPrincipal;
+            frm.MostrarLogoNombre();
         }
     }
 }

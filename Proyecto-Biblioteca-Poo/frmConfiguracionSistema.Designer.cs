@@ -34,11 +34,8 @@
             this.btnEditarCampos = new System.Windows.Forms.Button();
             this.btnGuardarCampos = new System.Windows.Forms.Button();
             this.ptbxImagen = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCambiarLogo = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.chbxOscuro = new System.Windows.Forms.CheckBox();
-            this.chbxClaro = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbxImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,17 +46,17 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(81, 160);
+            this.label1.Location = new System.Drawing.Point(56, 259);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(6);
-            this.label1.Size = new System.Drawing.Size(250, 34);
+            this.label1.Size = new System.Drawing.Size(241, 34);
             this.label1.TabIndex = 63;
-            this.label1.Text = "Nombre De La Biblioteca";
+            this.label1.Text = "Nombre de la Biblioteca";
             // 
             // txtNombreEmpresa
             // 
             this.txtNombreEmpresa.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreEmpresa.Location = new System.Drawing.Point(73, 222);
+            this.txtNombreEmpresa.Location = new System.Drawing.Point(48, 321);
             this.txtNombreEmpresa.Name = "txtNombreEmpresa";
             this.txtNombreEmpresa.Size = new System.Drawing.Size(263, 35);
             this.txtNombreEmpresa.TabIndex = 62;
@@ -75,13 +72,14 @@
             this.btnEditarCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarCampos.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarCampos.ForeColor = System.Drawing.Color.White;
-            this.btnEditarCampos.Location = new System.Drawing.Point(81, 283);
+            this.btnEditarCampos.Location = new System.Drawing.Point(56, 382);
             this.btnEditarCampos.Margin = new System.Windows.Forms.Padding(0);
             this.btnEditarCampos.Name = "btnEditarCampos";
             this.btnEditarCampos.Size = new System.Drawing.Size(109, 40);
             this.btnEditarCampos.TabIndex = 76;
             this.btnEditarCampos.Text = "Editar";
             this.btnEditarCampos.UseVisualStyleBackColor = false;
+            this.btnEditarCampos.Click += new System.EventHandler(this.btnEditarCampos_Click);
             // 
             // btnGuardarCampos
             // 
@@ -94,7 +92,7 @@
             this.btnGuardarCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarCampos.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarCampos.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarCampos.Location = new System.Drawing.Point(216, 283);
+            this.btnGuardarCampos.Location = new System.Drawing.Point(191, 382);
             this.btnGuardarCampos.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnGuardarCampos.Name = "btnGuardarCampos";
             this.btnGuardarCampos.Size = new System.Drawing.Size(109, 40);
@@ -106,50 +104,32 @@
             // ptbxImagen
             // 
             this.ptbxImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptbxImagen.Location = new System.Drawing.Point(124, 360);
+            this.ptbxImagen.Location = new System.Drawing.Point(414, 259);
             this.ptbxImagen.Name = "ptbxImagen";
-            this.ptbxImagen.Size = new System.Drawing.Size(148, 176);
+            this.ptbxImagen.Size = new System.Drawing.Size(313, 176);
+            this.ptbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbxImagen.TabIndex = 77;
             this.ptbxImagen.TabStop = false;
             // 
-            // button1
+            // btnCambiarLogo
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(77, 562);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 40);
-            this.button1.TabIndex = 79;
-            this.button1.Text = "Eliminar";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(212, 562);
-            this.button2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 40);
-            this.button2.TabIndex = 78;
-            this.button2.Text = "Cambiar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCambiarLogo.BackColor = System.Drawing.Color.Transparent;
+            this.btnCambiarLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCambiarLogo.BackgroundImage")));
+            this.btnCambiarLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCambiarLogo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCambiarLogo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCambiarLogo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCambiarLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCambiarLogo.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCambiarLogo.ForeColor = System.Drawing.Color.White;
+            this.btnCambiarLogo.Location = new System.Drawing.Point(517, 456);
+            this.btnCambiarLogo.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.btnCambiarLogo.Name = "btnCambiarLogo";
+            this.btnCambiarLogo.Size = new System.Drawing.Size(109, 40);
+            this.btnCambiarLogo.TabIndex = 78;
+            this.btnCambiarLogo.Text = "Cambiar";
+            this.btnCambiarLogo.UseVisualStyleBackColor = false;
+            this.btnCambiarLogo.Click += new System.EventHandler(this.btnCambiarLogo_Click);
             // 
             // label3
             // 
@@ -158,38 +138,12 @@
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(473, 186);
+            this.label3.Location = new System.Drawing.Point(474, 197);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(6);
-            this.label3.Size = new System.Drawing.Size(189, 34);
+            this.label3.Size = new System.Drawing.Size(216, 34);
             this.label3.TabIndex = 81;
-            this.label3.Text = "Modo Del Sistema";
-            // 
-            // chbxOscuro
-            // 
-            this.chbxOscuro.AutoSize = true;
-            this.chbxOscuro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(173)))));
-            this.chbxOscuro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbxOscuro.Location = new System.Drawing.Point(452, 248);
-            this.chbxOscuro.Name = "chbxOscuro";
-            this.chbxOscuro.Padding = new System.Windows.Forms.Padding(6);
-            this.chbxOscuro.Size = new System.Drawing.Size(103, 40);
-            this.chbxOscuro.TabIndex = 82;
-            this.chbxOscuro.Text = "Oscuro";
-            this.chbxOscuro.UseVisualStyleBackColor = false;
-            // 
-            // chbxClaro
-            // 
-            this.chbxClaro.AutoSize = true;
-            this.chbxClaro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(173)))));
-            this.chbxClaro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbxClaro.Location = new System.Drawing.Point(583, 248);
-            this.chbxClaro.Name = "chbxClaro";
-            this.chbxClaro.Padding = new System.Windows.Forms.Padding(14, 6, 15, 6);
-            this.chbxClaro.Size = new System.Drawing.Size(102, 40);
-            this.chbxClaro.TabIndex = 83;
-            this.chbxClaro.Text = "Claro";
-            this.chbxClaro.UseVisualStyleBackColor = false;
+            this.label3.Text = "Logo de la Biblioteca";
             // 
             // frmConfiguracionSistema
             // 
@@ -197,11 +151,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(785, 640);
-            this.Controls.Add(this.chbxClaro);
-            this.Controls.Add(this.chbxOscuro);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnCambiarLogo);
             this.Controls.Add(this.ptbxImagen);
             this.Controls.Add(this.btnEditarCampos);
             this.Controls.Add(this.btnGuardarCampos);
@@ -224,10 +175,7 @@
         public System.Windows.Forms.Button btnEditarCampos;
         public System.Windows.Forms.Button btnGuardarCampos;
         private System.Windows.Forms.PictureBox ptbxImagen;
-        public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button btnCambiarLogo;
         public System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox chbxOscuro;
-        private System.Windows.Forms.CheckBox chbxClaro;
     }
 }

@@ -49,17 +49,15 @@ namespace Proyecto_Biblioteca_Poo
         }
         private void ObtenerDato(string consulta, string isbn)
         {
-            using (SqlConnection conexion = new SqlConnection(@"Server = NIURLETH; Database = Biblioteca; Integrated Security = True"))
-            {
                 int a = 0;
-                conexion.Open();
-                SqlCommand comando = new SqlCommand(consulta, conexion);
-                SqlDataReader leer = comando.ExecuteReader();
-                while (leer.Read())
-                    a = leer.GetInt32(0);
-                a += 1;
-                obj.Update("update Libros set cantidad_lb='" + a + "' where isbn_lb =  '" + isbn.Trim() + "'");
-            }
+            obj.AbrirConexion();
+            SqlCommand comando = new SqlCommand(consulta, obj.Conexion);
+            SqlDataReader leer = comando.ExecuteReader();
+            while (leer.Read())
+                a = leer.GetInt32(0);
+            a += 1;
+            obj.Update("update Libros set cantidad_lb='" + a + "' where isbn_lb =  '" + isbn.Trim() + "'");
+            obj.CerrarConexion();
         }
         private void Limpiar_Y_Cargar()
         {

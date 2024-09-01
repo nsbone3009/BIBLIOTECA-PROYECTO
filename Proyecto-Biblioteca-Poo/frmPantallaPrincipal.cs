@@ -81,6 +81,17 @@ namespace Proyecto_Biblioteca_Poo
         }
         private void Menu_Load(object sender, EventArgs e)
         {
+            lbListaLibros.Visible = false;
+            lbPrestamosLibros.Visible = false;
+            lbDevolucionesLibros.Visible = false;
+            lbListaLectores.Visible = false;
+            lbConfiguracion.Visible = false;
+            lbUsuarios.Visible = false;
+            MostrarLogoNombre();
+            LlamarFormulario(frmListaLibros);
+        }
+        public void MostrarLogoNombre()
+        {
             csConexionSQL conexion = new csConexionSQL();
             string consulta = "Select * from Logo where id_imagen = 1";
             SqlDataReader leer = conexion.SelectLeer(consulta);
@@ -88,23 +99,14 @@ namespace Proyecto_Biblioteca_Poo
             {
                 try
                 {
+                    lbNombreEmpresa.Text = leer["nombre_lg"].ToString();
                     MemoryStream ImgMemoria = new MemoryStream((byte[])leer["imagen_lg"]);
                     Bitmap bitmap = new Bitmap(ImgMemoria);
                     ptboxLogo.BackgroundImage = bitmap;
-                    lbNombreEmpresa.Text = leer["nombre_lg"].ToString();
                 }
                 catch { }
             }
-            conexion.CerrarConexion();
-            lbListaLibros.Visible = false;
-            lbPrestamosLibros.Visible = false;
-            lbDevolucionesLibros.Visible = false;
-            lbListaLectores.Visible = false;
-            lbConfiguracion.Visible = false;
-            lbUsuarios.Visible = false;
-            LlamarFormulario(frmListaLibros);
         }
-
         private void btnLibros_Click(object sender, EventArgs e)
         {
             if (clickLectores) { btnLectores.PerformClick(); }
@@ -135,7 +137,6 @@ namespace Proyecto_Biblioteca_Poo
                 clickLibros = false;
             }
         }
-
         private void btnLectores_Click(object sender, EventArgs e)
         {
             if (clickLibros) { btnLibros.PerformClick(); }
@@ -154,7 +155,6 @@ namespace Proyecto_Biblioteca_Poo
                 clickLectores = false;
             }
         }
-
         private void btnAdministracion_Click(object sender, EventArgs e)
         {
             if (clickLibros) { btnLibros.PerformClick(); }
@@ -174,27 +174,22 @@ namespace Proyecto_Biblioteca_Poo
                 clickAdministracion = false;
             }
         }
-
         private void lbListaLibros_Click(object sender, EventArgs e)
         {
             LlamarFormulario(frmListaLibros);
         }
-
         private void lbPrestamosLibros_Click(object sender, EventArgs e)
         {
             LlamarFormulario(frmListaPrestamosLibros);
         }
-
         private void lbDevolucionesLibros_Click(object sender, EventArgs e)
         {
             LlamarFormulario(frmListaDevolucionesLibros);
         }
-
         private void lbListaLectores_Click(object sender, EventArgs e)
         {
             LlamarFormulario(frmListaLectores);
         }
-
         private void LlamarFormulario(Form formulario)
         {
             plPantalla.Controls.Clear();
@@ -202,19 +197,18 @@ namespace Proyecto_Biblioteca_Poo
             plPantalla.Controls.Add(formulario);
             formulario.Show();
         }
-
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             new frmValidacionEntrada().Show();
             this.Hide();
         }
-
         private void lbConfiguracion_Click(object sender, EventArgs e)
         {
             plPantalla.Controls.Clear();
             this.AddOwnedForm(frmConfiguracion);
             frmConfiguracion.TopLevel = false;
             plPantalla.Controls.Add(frmConfiguracion);
+            frmConfiguracion.Mostrar();
             frmConfiguracion.Show();
         } 
     }

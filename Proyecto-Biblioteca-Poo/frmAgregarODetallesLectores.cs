@@ -13,6 +13,7 @@ namespace Proyecto_Biblioteca_Poo
 {
     public partial class frmAgregarODetallesLectores : Form
     {
+        public string cedula = "";
         public frmAgregarODetallesLectores()
         {
             InitializeComponent();
@@ -25,18 +26,34 @@ namespace Proyecto_Biblioteca_Poo
 
         private void btnGuardarCampos_Click(object sender, EventArgs e)
         {
-            csConexionSQL conexion = new csConexionSQL();
-            string consulta = "Update Lectores set cedula_ltr =  '" + txtCedula.Text +"'," +
-                "nombres_ltr = '" + txtNombres.Text+ "',apellidos_ltr = '" + txtApellidos.Text + "', " +
+            frmListaLectores frm = Owner as frmListaLectores;
+            if (frm.validacion)
+            {
+                string consulta = "Update Lectores set nombres_ltr = '" + txtNombres.Text + "',apellidos_ltr = '" + txtApellidos.Text + "', " +
                 "fecha_nacimiento_ltr =  '" + txtFechaN.Text + "', direccion_domicilio_ltr = '" + txtDomicilio.Text + "'," +
-                "correo_ltr ='" + txtCorreoElectronico.Text + "', sancion_ltr ='" + txtSan.Text + "' ," +
-                "tiempo_scn_ltr = '" + txtTiempoS.Text + "'";
-            conexion.Update(consulta);
+                "correo_ltr ='" + txtCorreoElectronico.Text + "', sancion_ltr ='" + txtSancion.Text + "' where cedula_ltr = '" + cedula + "'";
+                new csConexionSQL().Update(consulta);
+                frm.validacion = false;
+            }
+            else
+            {
+                string consulta = "Insert into Lectores(cedula_ltr, nombres_ltr, apellidos_ltr, fecha_nacimiento_ltr, direccion_domicilio_ltr, correo_ltr, sancion_ltr)" +
+                    "values('"+txtCedula.Text+"', '" + txtNombres.Text + "', '" + txtApellidos.Text + "', '" + txtFechaN.Text + "', '" + txtDomicilio.Text + "', '" + txtCorreoElectronico.Text + "', '" + txtSancion.Text + "')";
+                new csConexionSQL().Insert(consulta);
+            }
+            frm.dgvLectores.Rows.Clear();
+            frm.MostrarLectores();
+            this.Close();
         }
-
-        private void txtFechaN_TextChanged(object sender, EventArgs e)
+        private void btnEditarCampos_Click(object sender, EventArgs e)
         {
-
+            txtNombres.Enabled = true;
+            txtApellidos.Enabled = true;
+            txtFechaN.Enabled = true;
+            txtCorreoElectronico.Enabled = true;
+            txtSancion.Enabled = true;
+            txtDomicilio.Enabled = true;
+            btnGuardarCampos.Enabled = true;
         }
     }
 }

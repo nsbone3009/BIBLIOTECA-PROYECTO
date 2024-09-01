@@ -72,6 +72,7 @@
             this.lbUsuarios.AutoSize = true;
             this.lbUsuarios.BackColor = System.Drawing.Color.Transparent;
             this.lbUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbUsuarios.Enabled = false;
             this.lbUsuarios.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsuarios.ForeColor = System.Drawing.Color.White;
             this.lbUsuarios.Location = new System.Drawing.Point(12, 468);
@@ -144,7 +145,7 @@
             this.lbNombreEmpresa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbNombreEmpresa.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNombreEmpresa.ForeColor = System.Drawing.Color.White;
-            this.lbNombreEmpresa.Location = new System.Drawing.Point(40, 138);
+            this.lbNombreEmpresa.Location = new System.Drawing.Point(25, 138);
             this.lbNombreEmpresa.Name = "lbNombreEmpresa";
             this.lbNombreEmpresa.Size = new System.Drawing.Size(127, 22);
             this.lbNombreEmpresa.TabIndex = 13;
@@ -173,9 +174,9 @@
             // 
             this.ptboxLogo.BackColor = System.Drawing.Color.Transparent;
             this.ptboxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptboxLogo.Location = new System.Drawing.Point(67, 23);
+            this.ptboxLogo.Location = new System.Drawing.Point(0, 12);
             this.ptboxLogo.Name = "ptboxLogo";
-            this.ptboxLogo.Size = new System.Drawing.Size(100, 100);
+            this.ptboxLogo.Size = new System.Drawing.Size(239, 115);
             this.ptboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptboxLogo.TabIndex = 11;
             this.ptboxLogo.TabStop = false;
