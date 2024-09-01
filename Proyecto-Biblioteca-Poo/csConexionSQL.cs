@@ -66,6 +66,14 @@ namespace Proyecto_Biblioteca_Poo
         {
             conexion.Open();                                          // Abre la conexión.
         }
+<<<<< HEAD<<
+=======
+        public static SqlConnection GetConnection()
+        {
+            SqlConnection conexion = new SqlConnection(@"Password=admin;Persist Security Info=False;User ID=admin;Initial Catalog=Biblioteca;Data Source=NIURLETH");
+            conexion.Open();
+            return conexion;
+        }
 
         public class ResultadoLogin
         {
@@ -73,6 +81,7 @@ namespace Proyecto_Biblioteca_Poo
             public string Rol { get; set; }
         }
 
+>>>>>>> be7de5a1baa00d9aa0272653404f403c66e711d0
         public bool VerificarLogin(string usuario, string contraseña)
         {
             conexion.Open();
