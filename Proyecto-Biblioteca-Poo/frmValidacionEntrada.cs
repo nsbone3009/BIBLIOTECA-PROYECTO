@@ -29,7 +29,6 @@ namespace Proyecto_Biblioteca_Poo
             {
                 try
                 {
-
                     MemoryStream ImgMemoria = new MemoryStream((byte[])leer["imagen_lg"]);
                     Bitmap bitmap = new Bitmap(ImgMemoria);
                     ptboxLogo.BackgroundImage = bitmap;
@@ -52,12 +51,10 @@ namespace Proyecto_Biblioteca_Poo
             btnMostrarContraseña.Visible = true;
             btnOcultarContraseña.Visible = false;
         }
-
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            Ingreso(txtUsuario.Text, txtContraseña.Text);
+            Ingreso(txtUsuario.Text.Trim(), txtContraseña.Text.Trim());
         }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -81,7 +78,6 @@ namespace Proyecto_Biblioteca_Poo
             //    string rol = conexion.ObtenerRolUsuario(cedulaUsuario);
 
             frmPantallaPrincipal frm = new frmPantallaPrincipal();
-
             //    if (rol == "Bibliotecario")
             //    {
             //        frm.btnAdministracion.Visible = false;

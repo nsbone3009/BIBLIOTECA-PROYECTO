@@ -279,9 +279,9 @@
             this.lbTituloVentana.ForeColor = System.Drawing.Color.White;
             this.lbTituloVentana.Location = new System.Drawing.Point(104, 29);
             this.lbTituloVentana.Name = "lbTituloVentana";
-            this.lbTituloVentana.Size = new System.Drawing.Size(94, 24);
+            this.lbTituloVentana.Size = new System.Drawing.Size(248, 24);
             this.lbTituloVentana.TabIndex = 51;
-            this.lbTituloVentana.Text = "XXXXXX";
+            this.lbTituloVentana.Text = "MODIFICAR PRESTAMO";
             // 
             // lbNombreLector
             // 
