@@ -121,7 +121,7 @@
   <data name="btnCancelar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAWIAAAAqCAYAAACJIFHPAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAKtJREFUeF7tyLENwDAAw7D8/3SaAzS7CwVw0XldAH6VE4CdnADs5ARgJycAOzkB
+        vAAADrwBlbxySQAAAKtJREFUeF7tyLENwDAAw7D8/3SaAzS7CwVw0XldAH6VE4CdnADs5ARgJycAOzkB
         2MkJwE5OAHZyArCTE4CdnADs5ARgJycAOzkB2MkJwE5OAHZyArCTE4CdnADs5ARgJycAOzkB2MkJwE5O
         AHZyArCTE4CdnADs5ARgJycAOzkB2MkJwE5OAHZyArCTE4CdnADs5ARgJycAOzkB2MkJwE5OAHZyArCT
         E4CJcz8U2N1Epn/h7gAAAABJRU5ErkJggg==
@@ -130,7 +130,7 @@
   <data name="btnRegistrarPrestamo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAWIAAAAqCAYAAACJIFHPAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAKhJREFUeF7tyCEBwDAABLHqm9dp7Awc/pGAkJzzvBeAH2UCsJMJwE4mADuZAOxk
+        vAAADrwBlbxySQAAAKhJREFUeF7tyCEBwDAABLHqm9dp7Awc/pGAkJzzvBeAH2UCsJMJwE4mADuZAOxk
         ArCTCcBOJgA7mQDsZAKwkwnATiYAO5kA7GQCsJMJwE4mADuZAOxkArCTCcBOJgA7mQDsZAKwkwnATiYA
         O5kA7GQCsJMJwE4mADuZAOxkArCTCcBOJgA7mQDsZAKwkwnATiYAO5kA7GQCsJMJwE4mADuZAOxkAjDy
         3g8+Q+nYiPqTFQAAAABJRU5ErkJggg==
@@ -139,7 +139,7 @@
   <data name="btnSeleccionarLibro.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAWIAAAAqCAYAAACJIFHPAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAKhJREFUeF7tyCEBwDAABLHqm9dp7Awc/pGAkJzzvBeAH2UCsJMJwE4mADuZAOxk
+        vAAADrwBlbxySQAAAKhJREFUeF7tyCEBwDAABLHqm9dp7Awc/pGAkJzzvBeAH2UCsJMJwE4mADuZAOxk
         ArCTCcBOJgA7mQDsZAKwkwnATiYAO5kA7GQCsJMJwE4mADuZAOxkArCTCcBOJgA7mQDsZAKwkwnATiYA
         O5kA7GQCsJMJwE4mADuZAOxkArCTCcBOJgA7mQDsZAKwkwnATiYAO5kA7GQCsJMJwE4mADuZAOxkAjDy
         3g8+Q+nYiPqTFQAAAABJRU5ErkJggg==
@@ -148,7 +148,7 @@
   <data name="btnSeleccionarLector.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAWIAAAAqCAYAAACJIFHPAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAKhJREFUeF7tyCEBwDAABLHqm9dp7Awc/pGAkJzzvBeAH2UCsJMJwE4mADuZAOxk
+        vAAADrwBlbxySQAAAKhJREFUeF7tyCEBwDAABLHqm9dp7Awc/pGAkJzzvBeAH2UCsJMJwE4mADuZAOxk
         ArCTCcBOJgA7mQDsZAKwkwnATiYAO5kA7GQCsJMJwE4mADuZAOxkArCTCcBOJgA7mQDsZAKwkwnATiYA
         O5kA7GQCsJMJwE4mADuZAOxkArCTCcBOJgA7mQDsZAKwkwnATiYAO5kA7GQCsJMJwE4mADuZAOxkAjDy
         3g8+Q+nYiPqTFQAAAABJRU5ErkJggg==
@@ -157,7 +157,7 @@
   <data name="btnCalendario.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAWIAAAAqCAYAAACJIFHPAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAKhJREFUeF7tyCEBwDAABLHqm9dp7Awc/pGAkJzzvBeAH2UCsJMJwE4mADuZAOxk
+        vAAADrwBlbxySQAAAKhJREFUeF7tyCEBwDAABLHqm9dp7Awc/pGAkJzzvBeAH2UCsJMJwE4mADuZAOxk
         ArCTCcBOJgA7mQDsZAKwkwnATiYAO5kA7GQCsJMJwE4mADuZAOxkArCTCcBOJgA7mQDsZAKwkwnATiYA
         O5kA7GQCsJMJwE4mADuZAOxkArCTCcBOJgA7mQDsZAKwkwnATiYAO5kA7GQCsJMJwE4mADuZAOxkAjDy
         3g8+Q+nYiPqTFQAAAABJRU5ErkJggg==
@@ -166,7 +166,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAwwAAAIwCAYAAAArsOwZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAADqRJREFUeF7t3TGP5QUVh2HoLfYb6CcwfgETamhMDLVYa2FjKDWx1thaaaHlBtyG
+        vAAADrwBlbxySQAADqRJREFUeF7t3TGP5QUVh2HoLfYb6CcwfgETamhMDLVYa2FjKDWx1thaaaHlBtyG
         QhIJBTQkKgWNUbbBoBZssTQ01z0j11zIebNkd7bwf58neTOzZ+bOtPPL3bnz3HMv3j1JkiRJ0tp6lCRJ
         kqRpPUqSJEnStB4lSZIkaVqPkiRJkjStR0mSJEma1qMkSZIkTetRkiRJkqb1KEmSJEnTepQkSZKkaT1K
         kiRJ0rQeJUmSJGlaj5IkSZI0rUdJkiRJmtajJEmSJE3rUZIkSZKm9ShJkiRJ03qUJEmSpGk9SpIkSdK0

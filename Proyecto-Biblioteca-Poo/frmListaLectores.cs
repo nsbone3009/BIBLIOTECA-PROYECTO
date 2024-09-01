@@ -16,6 +16,11 @@ namespace Proyecto_Biblioteca_Poo
         {
             InitializeComponent();
         }
+        public bool BtnAgregarLectorVisible
+        {
+            get { return btnAgregarLector.Visible; }
+            set { btnAgregarLector.Visible = value; }
+        }
         private void btnAgregarLibro_Click(object sender, EventArgs e)
         {
             new frmAgregarODetallesLectores().ShowDialog();

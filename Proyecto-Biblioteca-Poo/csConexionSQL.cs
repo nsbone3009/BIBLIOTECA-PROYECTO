@@ -12,7 +12,7 @@ namespace Proyecto_Biblioteca_Poo
     internal class csConexionSQL
     {
         // Cadena de conexión que especifica el servidor, base de datos, y las credenciales de SQL Server.
-        private string cadenaConexion = @"Password=111; Persist Security Info=False;User ID=yair;Initial Catalog=Biblioteca; Data Source=DESKTOP-GV7UK1D\SQLEXPRESS";
+        private string cadenaConexion = @"Password=admin; Persist Security Info=False;User ID=admin;Initial Catalog=Biblioteca; Data Source=NIURLETH";
         private SqlConnection conexion;  // Objeto SqlConnection para manejar la conexión con SQL Server.
 
         // Propiedad que permite acceder al objeto SqlConnection desde fuera de la clase.
@@ -74,7 +74,7 @@ namespace Proyecto_Biblioteca_Poo
         }
         public static SqlConnection GetConnection()
         {
-            SqlConnection conexion = new SqlConnection(@"Password=111;Persist Security Info=False;User ID=yair;Initial Catalog=Biblioteca;Data Source=DESKTOP-GV7UK1D\SQLEXPRESS");
+            SqlConnection conexion = new SqlConnection(@"Password=admin;Persist Security Info=False;User ID=admin;Initial Catalog=Biblioteca;Data Source=NIURLETH");
             conexion.Open();
             return conexion;
         }

@@ -115,7 +115,7 @@
             this.blPrestamos.BackColor = System.Drawing.Color.Transparent;
             this.blPrestamos.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.blPrestamos.ForeColor = System.Drawing.Color.White;
-            this.blPrestamos.Location = new System.Drawing.Point(128, 74);
+            this.blPrestamos.Location = new System.Drawing.Point(116, 74);
             this.blPrestamos.Name = "blPrestamos";
             this.blPrestamos.Size = new System.Drawing.Size(140, 24);
             this.blPrestamos.TabIndex = 14;
