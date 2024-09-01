@@ -20,6 +20,7 @@ namespace Proyecto_Biblioteca_Poo
         static frmListaDevolucionesLibros frmListaDevolucionesLibros = new frmListaDevolucionesLibros();
         static frmConfiguracionSistema frmConfiguracion = new frmConfiguracionSistema();
         static csEnvioDeAvisosDev avisos = new csEnvioDeAvisosDev();
+        //Hola
         static bool clickLibros = false, clickLectores = false, clickAdministracion = false;
         private Timer timer;
         public frmPantallaPrincipal()

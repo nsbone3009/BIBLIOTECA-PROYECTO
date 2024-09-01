@@ -40,6 +40,7 @@ namespace Proyecto_Biblioteca_Poo
                 }
             }
         }
+
         public void EnviarCorreo(string correo, string nombre, string isbn)
         {
             frmPantallaPrincipal obj = new frmPantallaPrincipal();
