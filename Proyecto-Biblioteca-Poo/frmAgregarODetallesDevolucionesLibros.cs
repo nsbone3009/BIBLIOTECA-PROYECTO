@@ -27,7 +27,11 @@ namespace Proyecto_Biblioteca_Poo
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            new frmListaPrestamosLibros().ShowDialog();
+            frmListaPrestamosLibros frmLibros = new frmListaPrestamosLibros();
+            frmLibros.btnAgregarPrestamo.Visible = false;
+            frmLibros.btnModificarPrestamo.Visible = false;
+            frmLibros.bandera = true;
+            frmLibros.ShowDialog();
             this.Close();
         }
 
@@ -44,7 +48,7 @@ namespace Proyecto_Biblioteca_Poo
                 Limpiar_Y_Cargar();
             }
             else
-                MessageBox.Show("Primero Seleccione un libro");
+                MessageBox.Show("Primero seleccione un libro.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         private void ObtenerDato(string consulta, string isbn)
         {

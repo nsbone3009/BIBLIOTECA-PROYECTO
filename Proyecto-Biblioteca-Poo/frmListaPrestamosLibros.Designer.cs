@@ -89,7 +89,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(643, 35);
             this.txtBuscar.TabIndex = 10;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
             // 
             // btnAgregarPrestamo
             // 
@@ -167,8 +167,8 @@
         private System.Windows.Forms.Button btnBuscar;
         public System.Windows.Forms.DataGridView dgvPrestamos;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.Button btnAgregarPrestamo;
         private System.Windows.Forms.Label blPrestamos;
-        private System.Windows.Forms.Button btnModificarPrestamo;
+        public System.Windows.Forms.Button btnAgregarPrestamo;
+        public System.Windows.Forms.Button btnModificarPrestamo;
     }
 }

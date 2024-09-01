@@ -24,10 +24,14 @@ namespace Proyecto_Biblioteca_Poo
 
         private void frmListaDevolucionesLibros_Load(object sender, EventArgs e)
         {
-            string consulta = "Select * from Devoluciones";
+            string consulta = @"SELECT id_dl AS [ID DEVOLUCION], cedula_ltr AS [CEDULA LECTOR], isbn_lb AS [ISBN LIBRO], fecha_prestamo AS [FECHA PRESTAMO], fecha_devolucion_programada AS [FECHA DEVOLUCION PROGRAMADA], fecha_devolucion AS [FECHA DEVOLUCION] FROM Devoluciones";
             csConexionSQL database = new csConexionSQL();
             dgvDevoluciones.DataSource = database.MostrarRegistros(consulta);
-            //new csAjustarDataGridView().Ajustar(dgvDevoluciones);
+        }
+
+        private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
+        {
+         
         }
     }
 }

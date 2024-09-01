@@ -13,6 +13,7 @@ namespace Proyecto_Biblioteca_Poo
     public partial class frmListaLectores : Form
     {
         public bool validacion = false;
+        public bool bandera = false;
         public frmListaLectores()
         {
             InitializeComponent();
@@ -37,28 +38,72 @@ namespace Proyecto_Biblioteca_Poo
         {
             if (e.RowIndex >= 0)
             {
-                validacion = true;
-                frmAgregarODetallesLectores frm = new frmAgregarODetallesLectores();
-                this.AddOwnedForm(frm);
-                frm.txtNombres.Text = dgvLectores.Rows[e.RowIndex].Cells[0].Value.ToString();
-                frm.txtApellidos.Text = dgvLectores.Rows[e.RowIndex].Cells[1].Value.ToString();
-                frm.txtFechaN.Text = dgvLectores.Rows[e.RowIndex].Cells[2].Value.ToString();
-                frm.txtCorreoElectronico.Text = dgvLectores.Rows[e.RowIndex].Cells[3].Value.ToString();
-                frm.txtDomicilio.Text = dgvLectores.Rows[e.RowIndex].Cells[4].Value.ToString();
-                frm.txtSancion.Text = dgvLectores.Rows[e.RowIndex].Cells[5].Value.ToString();
-                frm.txtNombres.Enabled = false;
-                frm.txtApellidos.Enabled = false;
-                frm.txtFechaN.Enabled = false;
-                frm.txtCorreoElectronico.Enabled = false;
-                frm.txtSancion.Enabled = false;
-                frm.txtDomicilio.Enabled = false;
-                frm.lbTituloVentana.Text = "Detalles del Lector";
-                frm.txtCedula.Visible = false;
-                frm.lbcedula.Visible = false;
-                frm.btnGuardarCampos.Enabled = false;
-                frm.cedula = new csConexionSQL().Extraer("Select cedula_ltr from Lectores where nombres_ltr = '"+ dgvLectores.Rows[e.RowIndex].Cells[0].Value.ToString() + "' and " +
-                    "apellidos_ltr = '"+ dgvLectores.Rows[e.RowIndex].Cells[1].Value.ToString() + "'","cedula_ltr");
-                frm.ShowDialog();
+                if (bandera == true)
+                {
+                    try
+                    {
+                        if (e.RowIndex >= 0)
+                        {
+                            string Correo = dgvLectores.Rows[e.RowIndex].Cells[3].Value.ToString();
+                            string cedula = new csConexionSQL().Extraer("Select cedula_ltr from Lectores where nombres_ltr = '" + dgvLectores.Rows[e.RowIndex].Cells[0].Value.ToString() + "' and " +
+                        "apellidos_ltr = '" + dgvLectores.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", "cedula_ltr");
+                            string nombre = dgvLectores.Rows[e.RowIndex].Cells[0].Value.ToString();
+                            string sancion = dgvLectores.Rows[e.RowIndex].Cells[5].Value.ToString();
+                            if (sancion == "Yes")
+                            {
+                                MessageBox.Show("Este lector no puede realizar prestamos.");
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    frmAgregarODetallesPrestamosLibros frmPrincipal = Owner as frmAgregarODetallesPrestamosLibros;
+                                    if (frmPrincipal != null)
+                                    {
+                                        frmPrincipal.correo = Correo;
+                                        frmPrincipal.txtCedula.Text = cedula;
+                                        frmPrincipal.txtNombreLector.Text = nombre;
+                                    }
+                                    this.Close();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Error en dgvlectores: " + ex);
+                                }
+                            }
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error en if dgvlectores: " + ex);
+                    }
+                }
+                else
+                {
+                    validacion = true;
+                    frmAgregarODetallesLectores frm = new frmAgregarODetallesLectores();
+                    this.AddOwnedForm(frm);
+                    frm.txtNombres.Text = dgvLectores.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    frm.txtApellidos.Text = dgvLectores.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    frm.txtFechaN.Text = dgvLectores.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    frm.txtCorreoElectronico.Text = dgvLectores.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    frm.txtDomicilio.Text = dgvLectores.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    frm.txtSancion.Text = dgvLectores.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    frm.txtNombres.Enabled = false;
+                    frm.txtApellidos.Enabled = false;
+                    frm.txtFechaN.Enabled = false;
+                    frm.txtCorreoElectronico.Enabled = false;
+                    frm.txtSancion.Enabled = false;
+                    frm.txtDomicilio.Enabled = false;
+                    frm.lbTituloVentana.Text = "Detalles del Lector";
+                    frm.txtCedula.Visible = false;
+                    frm.lbcedula.Visible = false;
+                    frm.btnGuardarCampos.Enabled = false;
+                    frm.cedula = new csConexionSQL().Extraer("Select cedula_ltr from Lectores where nombres_ltr = '" + dgvLectores.Rows[e.RowIndex].Cells[0].Value.ToString() + "' and " +
+                        "apellidos_ltr = '" + dgvLectores.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", "cedula_ltr");
+                    frm.ShowDialog();
+                }
             }
         }
 

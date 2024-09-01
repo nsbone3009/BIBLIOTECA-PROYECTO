@@ -95,7 +95,11 @@ namespace Proyecto_Biblioteca_Poo
                 return false;
             }
         }
-
+        public string CargarDatos()
+        {
+            string consulta = @"SELECT id_ptm AS [ID PRESTAMO], cedula_ltr AS [CEDULA LECTOR], isbn_lb AS [ISBN LIBRO], fecha_prestamo AS [FECHA PRESTAMO], fecha_devolucio_programada AS [FECHA DE DEVOLUCION PROGRAMADA] FROM Prestamos WHERE estado_ = 1";
+            return consulta;
+        }
     }
 }
     

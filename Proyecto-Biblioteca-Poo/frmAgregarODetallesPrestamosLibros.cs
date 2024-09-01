@@ -94,6 +94,7 @@ namespace Proyecto_Biblioteca_Poo
             frmListaLectores frmLectores = new frmListaLectores();
             frmLectores.btnAgregarLector.Visible = false;
             frmLectores.Owner = this;
+            frmLectores.bandera = true;
             frmLectores.ShowDialog();
         }
         private void btnSeleccionarLibro_Click(object sender, EventArgs e)
@@ -101,6 +102,7 @@ namespace Proyecto_Biblioteca_Poo
             frmListaLibros frmLibros = new frmListaLibros();
             frmLibros.btnAgregarLibro.Visible = false;
             frmLibros.Owner = this;
+            frmLibros.bandera = true;
             frmLibros.ShowDialog();
         }
         private void btnCalendario_Click(object sender, EventArgs e)
@@ -125,38 +127,74 @@ namespace Proyecto_Biblioteca_Poo
                     string isbn_lb = txtISBN.Text;
                     string FechaP = txtFechaPrestamo.Text;
                     string FechaD = txtFechaDevolucion.Text;
-                    // Crear una instancia del servicio de préstamos
-                    ManejoPrestamo = new csPrestamos();
-                    // Registrar el préstamo
-                    bool exito = ManejoPrestamo.RegistrarPrestamo(id_ptm, cedula_ltr, isbn_lb, FechaP, FechaD);
-                    string cuerpoC = $"Hola Querido Lector: {txtNombreLector.Text.Trim()}, haz prestado el libro {txtTituloLibro.Text.Trim()}, no olvides delvolver el {txtFechaDevolucion.Text.Trim()}";
-                    if (exito)
+
+                    if (DateTime.Parse(FechaP) < DateTime.Parse(FechaD))
                     {
-                        MessageBox.Show("Préstamo registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtCedula.Text = txtNombreLector.Text = txtISBN.Text = txtTituloLibro.Text = txtFechaDevolucion.Text = "";
-                        csEmail Correo = new csEmail();
-                        Correo.Receptor = correo;
-                        Correo.Asunto = "HAZ REALIZADO UN PRESTAMO";
-                        Correo.Cuerpo = cuerpoC;
-                        MessageBox.Show(Correo.Enviar() ? "Correo enviado correctamente" : "Error al enviar el correo", "Envio de correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+                        try
+                        {
+                            // Crear una instancia del servicio de préstamos
+                            ManejoPrestamo = new csPrestamos();
+                            // Registrar el préstamo
+                            bool exito = ManejoPrestamo.RegistrarPrestamo(id_ptm, cedula_ltr, isbn_lb, FechaP, FechaD);
+                            string cuerpoC = $"Estimado(a) lector(a) {txtNombreLector.Text.Trim()}:\n\n" +
+                 $"Esperamos que estés disfrutando de la lectura de {txtTituloLibro.Text.Trim()}. Te recordamos que este libro fue prestado de nuestra biblioteca y que la fecha de devolución es el {txtFechaDevolucion.Text.Trim()}. Por favor, asegúrate de devolverlo a tiempo para que otros usuarios también puedan acceder a él.\n\n" +
+                 "Si necesitas más tiempo para finalizar tu lectura, no dudes en ponerte en contacto con nosotros para solicitar una extensión del préstamo.\n\n" +
+                 "Gracias por utilizar nuestros servicios y ayudarnos a mantener los recursos disponibles para todos. ¡Que disfrutes el resto de tu lectura!";
+                            ;
+                            if (exito)
+                            {
+                                MessageBox.Show("Préstamo registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                txtCedula.Text = txtNombreLector.Text = txtISBN.Text = txtTituloLibro.Text = txtFechaDevolucion.Text = "";
+                                csEmail Correo = new csEmail();
+                                Correo.Receptor = correo;
+                                Correo.Asunto = "HAZ REALIZADO UN PRESTAMO";
+                                Correo.Cuerpo = cuerpoC;
+                                MessageBox.Show(Correo.Enviar() ? "Correo enviado correctamente" : "Error al enviar el correo", "Envio de correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al realizar prestamo: " + ex);
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("La fecha de devolucion es menor a la de prestamo porfavor ingrese una nueva fecha de devolucion");
+                        txtFechaDevolucion.Text = string.Empty;
+                        txtFechaDevolucion.Focus();
+                    }
+
                 }
                 else
                 {
-                    ManejoPrestamo = new csPrestamos();
-                    int cedula_ltr = int.Parse(txtCedula.Text);
-                    string isbn_lb = txtISBN.Text;
-                    string FechaP = txtFechaPrestamo.Text;
-                    string FechaD = txtFechaDevolucion.Text;
-                    if (ManejoPrestamo.EditarPrestamo(IDPrestamo, cedula_ltr, isbn_lb, FechaP, FechaD))
-                        MessageBox.Show("Prestamo editado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    try
+                    {
+                        ManejoPrestamo = new csPrestamos();
+                        int cedula_ltr = int.Parse(txtCedula.Text);
+                        string isbn_lb = txtISBN.Text;
+                        string FechaP = txtFechaPrestamo.Text;
+                        string FechaD = txtFechaDevolucion.Text;
+                        if (DateTime.Parse(FechaP) < DateTime.Parse(FechaD))
+                        {
+                            if (ManejoPrestamo.EditarPrestamo(IDPrestamo, cedula_ltr, isbn_lb, FechaP, FechaD))
+                                MessageBox.Show("Prestamo editado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            else MessageBox.Show("Ha ocurrido un error al editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-
-                    else MessageBox.Show("Ha ocurrido un error al editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("La fecha de devolucion es menor a la de prestamo porfavor ingrese una nueva fecha de devolucion");
+                            txtFechaDevolucion.Text = string.Empty;
+                            txtFechaDevolucion.Focus();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al editar un prestamo: " + ex);
+                    }
                 }
-                this.Close();
             }
             catch (Exception ex)
             {

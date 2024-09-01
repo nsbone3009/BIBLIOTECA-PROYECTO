@@ -13,11 +13,11 @@ namespace Proyecto_Biblioteca_Poo
     public partial class frmListaLibros : Form
     {
         public bool validacion = false;
+        public bool bandera = false;
         public frmListaLibros()
         {
             InitializeComponent();
         }
-
         private void btnAgregarLibro_Click(object sender, EventArgs e)
         {
             frmAgregarODetallesLibros frm = new frmAgregarODetallesLibros();
@@ -35,29 +35,57 @@ namespace Proyecto_Biblioteca_Poo
         {
             if (e.RowIndex >= 0)
             {
-                validacion = true;
-                frmAgregarODetallesLibros frm = new frmAgregarODetallesLibros();
-                this.AddOwnedForm(frm);
-                frm.lbTituloVentana.Text = "Detalles del Libro";
-                frm.ISBN = new csConexionSQL().Extraer("Select isbn_lb from Libros where titulo_lb = '" + dgvLibros.Rows[e.RowIndex].Cells[0].Value.ToString().Trim() + "'", "isbn_lb");
-                frm.txtTitulo.Text = dgvLibros.Rows[e.RowIndex].Cells[0].Value.ToString().Trim();
-                frm.txtAutor.Text = dgvLibros.Rows[e.RowIndex].Cells[1].Value.ToString().Trim();
-                frm.txtEditorial.Text = dgvLibros.Rows[e.RowIndex].Cells[2].Value.ToString().Trim();
-                frm.txtCategoria.Text = dgvLibros.Rows[e.RowIndex].Cells[3].Value.ToString().Trim();
-                frm.txtPublicacion.Text = dgvLibros.Rows[e.RowIndex].Cells[4].Value.ToString().Trim();
-                frm.txtCantidad.Text = dgvLibros.Rows[e.RowIndex].Cells[5].Value.ToString().Trim();
-                frm.txtResume.Text = dgvLibros.Rows[e.RowIndex].Cells[6].Value.ToString().Trim();
-                frm.txtTitulo.Enabled = false;
-                frm.txtAutor.Enabled = false;
-                frm.txtEditorial.Enabled = false;
-                frm.txtCategoria.Enabled = false;
-                frm.txtPublicacion.Enabled = false;
-                frm.txtCantidad.Enabled = false;
-                frm.txtResume.Enabled = false;
-                frm.btnGuardarCampos.Enabled = false;
-                frm.txtIsbn.Visible = false;
-                frm.lbIsbn.Visible = false;
-                frm.ShowDialog();
+                if (bandera == true)
+                {
+                    try
+                    {
+                        if (e.RowIndex >= 0)
+                        {
+                            string ISBN = new csConexionSQL().Extraer("Select isbn_lb from Libros where titulo_lb = '" + dgvLibros.Rows[e.RowIndex].Cells[0].Value.ToString() + "'", "isbn_lb");
+                            string Titulo = dgvLibros.Rows[e.RowIndex].Cells[0].Value.ToString();
+                            frmAgregarODetallesPrestamosLibros frmPrincipal = Owner as frmAgregarODetallesPrestamosLibros;
+                            if (frmPrincipal != null)
+                            {
+                                frmPrincipal.txtISBN.Text = ISBN;
+                                frmPrincipal.txtTituloLibro.Text = Titulo;
+                            }
+                            this.Close();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error en if dgvlectores: " + ex);
+                    }
+                }
+                else
+                {
+                    if (e.RowIndex >= 0)
+                    {
+                        validacion = true;
+                        frmAgregarODetallesLibros frm = new frmAgregarODetallesLibros();
+                        this.AddOwnedForm(frm);
+                        frm.lbTituloVentana.Text = "Detalles del Libro";
+                        frm.ISBN = new csConexionSQL().Extraer("Select isbn_lb from Libros where titulo_lb = '" + dgvLibros.Rows[e.RowIndex].Cells[0].Value.ToString().Trim() + "'", "isbn_lb");
+                        frm.txtTitulo.Text = dgvLibros.Rows[e.RowIndex].Cells[0].Value.ToString().Trim();
+                        frm.txtAutor.Text = dgvLibros.Rows[e.RowIndex].Cells[1].Value.ToString().Trim();
+                        frm.txtEditorial.Text = dgvLibros.Rows[e.RowIndex].Cells[2].Value.ToString().Trim();
+                        frm.txtCategoria.Text = dgvLibros.Rows[e.RowIndex].Cells[3].Value.ToString().Trim();
+                        frm.txtPublicacion.Text = dgvLibros.Rows[e.RowIndex].Cells[4].Value.ToString().Trim();
+                        frm.txtCantidad.Text = dgvLibros.Rows[e.RowIndex].Cells[5].Value.ToString().Trim();
+                        frm.txtResume.Text = dgvLibros.Rows[e.RowIndex].Cells[6].Value.ToString().Trim();
+                        frm.txtTitulo.Enabled = false;
+                        frm.txtAutor.Enabled = false;
+                        frm.txtEditorial.Enabled = false;
+                        frm.txtCategoria.Enabled = false;
+                        frm.txtPublicacion.Enabled = false;
+                        frm.txtCantidad.Enabled = false;
+                        frm.txtResume.Enabled = false;
+                        frm.btnGuardarCampos.Enabled = false;
+                        frm.txtIsbn.Visible = false;
+                        frm.lbIsbn.Visible = false;
+                        frm.ShowDialog();
+                    }
+                }
             }
         }
         public void MostrarLibros()
