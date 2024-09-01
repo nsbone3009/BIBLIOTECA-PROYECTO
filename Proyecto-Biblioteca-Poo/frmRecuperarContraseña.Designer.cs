@@ -47,6 +47,7 @@
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(562, 35);
             this.txtCorreo.TabIndex = 8;
+            this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreo_KeyPress);
             // 
             // lbCorreo
             // 
@@ -154,7 +155,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(285, 304);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 32);
+            this.label1.Size = new System.Drawing.Size(216, 32);
             this.label1.TabIndex = 19;
             this.label1.Text = "El código fue enviado a su correo \r\nelectrónico y consta de ocho dígitos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

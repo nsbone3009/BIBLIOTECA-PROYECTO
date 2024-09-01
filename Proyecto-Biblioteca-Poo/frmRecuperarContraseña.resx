@@ -121,7 +121,7 @@
   <data name="btnEnviar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAWIAAAAqCAYAAACJIFHPAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAKhJREFUeF7tyCEBwDAABLHqm9dp7Awc/pGAkJzzvBeAH2UCsJMJwE4mADuZAOxk
+        wwAADsMBx2+oZAAAAKhJREFUeF7tyCEBwDAABLHqm9dp7Awc/pGAkJzzvBeAH2UCsJMJwE4mADuZAOxk
         ArCTCcBOJgA7mQDsZAKwkwnATiYAO5kA7GQCsJMJwE4mADuZAOxkArCTCcBOJgA7mQDsZAKwkwnATiYA
         O5kA7GQCsJMJwE4mADuZAOxkArCTCcBOJgA7mQDsZAKwkwnATiYAO5kA7GQCsJMJwE4mADuZAOxkAjDy
         3g8+Q+nYiPqTFQAAAABJRU5ErkJggg==
@@ -130,7 +130,7 @@
   <data name="btnVerificar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAWIAAAAqCAYAAACJIFHPAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAKhJREFUeF7tyCEBwDAABLHqm9dp7Awc/pGAkJzzvBeAH2UCsJMJwE4mADuZAOxk
+        wwAADsMBx2+oZAAAAKhJREFUeF7tyCEBwDAABLHqm9dp7Awc/pGAkJzzvBeAH2UCsJMJwE4mADuZAOxk
         ArCTCcBOJgA7mQDsZAKwkwnATiYAO5kA7GQCsJMJwE4mADuZAOxkArCTCcBOJgA7mQDsZAKwkwnATiYA
         O5kA7GQCsJMJwE4mADuZAOxkArCTCcBOJgA7mQDsZAKwkwnATiYAO5kA7GQCsJMJwE4mADuZAOxkAjDy
         3g8+Q+nYiPqTFQAAAABJRU5ErkJggg==
@@ -139,7 +139,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAwwAAAIwCAYAAAArsOwZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAD1BJREFUeF7t3b2L5fUZh2FtTQiC/4BFsBbS2cRaCWgSsYxC7CQJWFjGYB1ja6VF
+        wwAADsMBx2+oZAAAD1BJREFUeF7t3b2L5fUZh2FtTQiC/4BFsBbS2cRaCWgSsYxC7CQJWFjGYB1ja6VF
         LMV1LUQ0aCzcRvClsBF1G8WXwi3cxuYk33VM1uG5Nzvj7Donv+uCu3k8M57y92HO7Nxww13P7SRJkiRp
         bDxKkiRJ0mo8SpIkSdJqPEqSJEnSajxKkiRJ0mo8SpIkSdJqPEqSJEnSajxKkiRJ0mo8SpIkSdJqPEqS
         JEnSajxKkiRJ0mo8SpIkSdJqPEqSJEnSajxKkiRJ0mo8SpIkSdJqPEqSJEnSajxKkiRJ0mo86qr6+e9f

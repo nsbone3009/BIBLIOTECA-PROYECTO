@@ -28,10 +28,10 @@ namespace Proyecto_Biblioteca_Poo
         }
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            csConexionSQL nueva = new csConexionSQL();
+            csLogin ingreso = new csLogin();
             if (txtNuevaClave.Text == txtConfirmarCLave.Text)
             {
-                nueva.ActualizarContraseña(txtCorreo.Text, txtNuevaClave.Text);
+                ingreso.ActualizarContraseña(txtCorreo.Text, txtNuevaClave.Text);
                 this.Hide();
             }
             else
@@ -75,6 +75,33 @@ namespace Proyecto_Biblioteca_Poo
         {
             btnOcultarContraseña.Visible = false;
             bntocultaNueva.Visible = false;
+        }
+
+        private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                e.Handled = true;
+                MessageBox.Show("No se permiten espacios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtNuevaClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                e.Handled = true;
+                MessageBox.Show("No se permiten espacios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtConfirmarCLave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                e.Handled = true;
+                MessageBox.Show("No se permiten espacios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

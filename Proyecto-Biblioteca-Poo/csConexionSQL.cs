@@ -12,7 +12,7 @@ namespace Proyecto_Biblioteca_Poo
     internal class csConexionSQL
     {
         // Cadena de conexión que especifica el servidor, base de datos, y las credenciales de SQL Server.
-        private string cadenaConexion = @"Password = 1111; Persist Security Info = False; User ID = Administrador; Initial Catalog = Biblioteca; Data Source = DESKTOP-T767FTN\KHRIZ";
+        private string cadenaConexion = @"Password=123;Persist Security Info=True;User ID=Jeremy01;Initial Catalog=Biblioteca;Data Source=DESKTOP-2UJUKM2\JEREMY";
         private SqlConnection conexion;  // Objeto SqlConnection para manejar la conexión con SQL Server.
         // Propiedad que permite acceder al objeto SqlConnection desde fuera de la clase.
         public SqlConnection Conexion { get { return conexion; } }
@@ -65,68 +65,7 @@ namespace Proyecto_Biblioteca_Poo
         {
             conexion.Open();                                          // Abre la conexión.
         }
-        public bool VerificarLogin(string usuario, string contraseña)
-        {
-            string consulta = @"
-                SELECT usuario_crd, contraseña_crd, cedula_usr 
-                FROM Credenciales 
-                WHERE usuario_crd = @usuario AND contraseña_crd = @contraseña;";
-            SqlCommand comando = new SqlCommand(consulta, conexion);
-            comando.Parameters.AddWithValue("@usuario", usuario);
-            comando.Parameters.AddWithValue("@contraseña", contraseña);
-            SqlDataReader leer = comando.ExecuteReader();
-            if (leer.Read())
-            {
-                Cedula = leer["cedula_usr"].ToString();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public string ObtenerRolUsuario(string cedula)
-        {
-            string rol = string.Empty;
-                string consulta = @"
-                    SELECT correo_usr, rol_usr 
-                    FROM Credenciales AS C 
-                    INNER JOIN [Usuarios] AS U ON C.cedula_usr = U.cedula_usr 
-                    WHERE C.cedula_usr = @cedula";
-            SqlCommand comando = new SqlCommand(consulta, conexion);
-            comando.Parameters.AddWithValue("@cedula", cedula.Trim());
-            SqlDataReader leer = comando.ExecuteReader();
-            if (leer.Read())
-                rol = leer["rol_usr"].ToString();
-            return rol.Trim();
-        }
-        public void ActualizarContraseña(string correo, string NuevaClave)
-        {
-            string consulta = " select cedula_usr from Usuarios where correo_usr='" + correo + "'";
-            conexion.Open();
-            SqlCommand comandos = new SqlCommand(consulta, conexion);
-            SqlDataReader lector = comandos.ExecuteReader();
-            if (lector.Read())
-                Cedula = lector["cedula_usr"].ToString();
-            lector.Close();
-            string consulta01 = "update Credenciales set contraseña_crd='" + NuevaClave + "'where cedula_usr='" + Cedula + "'";
-            SqlCommand comandos01 = new SqlCommand(consulta01, conexion);
-            comandos01.ExecuteReader();
-            MessageBox.Show("Datos Actualizados");
-            conexion.Close();
-        }
-        public bool VerificarCorreoSQL(string correo)
-        {
-            string consulta = "select COUNT(*) from Usuarios where correo_usr='" + correo + "'";
-            bool ExisteCorreo = false;
-            conexion.Open();
-            SqlCommand comands = new SqlCommand(consulta, conexion);
-            int contador = (int)comands.ExecuteScalar();
-            ExisteCorreo = contador > 0;
-            conexion.Close();
-            return ExisteCorreo;
-        }
-
+      
         //AGREGADO POR KHRIZ, SIRVE PARA EXTRAER UN CAMPOS EN ESPECIFICO DE UN REGISTRO
         public string Extraer(string consulta, string columna)
         {

@@ -51,6 +51,7 @@
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(506, 35);
             this.txtCorreo.TabIndex = 10;
+            this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreo_KeyPress);
             // 
             // lbCorreo
             // 
@@ -72,6 +73,7 @@
             this.txtNuevaClave.Size = new System.Drawing.Size(253, 35);
             this.txtNuevaClave.TabIndex = 13;
             this.txtNuevaClave.UseSystemPasswordChar = true;
+            this.txtNuevaClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNuevaClave_KeyPress);
             // 
             // lbCodigo
             // 
@@ -92,6 +94,7 @@
             this.txtConfirmarCLave.Size = new System.Drawing.Size(253, 35);
             this.txtConfirmarCLave.TabIndex = 15;
             this.txtConfirmarCLave.UseSystemPasswordChar = true;
+            this.txtConfirmarCLave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConfirmarCLave_KeyPress);
             // 
             // label1
             // 

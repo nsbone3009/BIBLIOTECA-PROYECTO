@@ -32,7 +32,7 @@ namespace Proyecto_Biblioteca_Poo
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            csConexionSQL verificar = new csConexionSQL();
+         csLogin verificar = new csLogin();
             bool Verificador = verificar.VerificarCorreoSQL(txtCorreo.Text);
 
             if (Verificador == true && txtCorreo.Text.Contains("@"))
@@ -69,6 +69,16 @@ namespace Proyecto_Biblioteca_Poo
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+                MessageBox.Show("No se permiten espacios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                e.Handled = true;
+                MessageBox.Show("No se permiten espacios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

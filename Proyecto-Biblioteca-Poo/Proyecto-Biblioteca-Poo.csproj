@@ -139,6 +139,7 @@
     <Compile Include="frmValidacionEntrada.Designer.cs">
       <DependentUpon>frmValidacionEntrada.cs</DependentUpon>
     </Compile>
+    <Compile Include="csLogin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmActualizarContraseña.resx">
