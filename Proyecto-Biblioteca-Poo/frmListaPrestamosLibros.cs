@@ -51,6 +51,7 @@ namespace Proyecto_Biblioteca_Poo
         }
         private void CargarDatos()
         {
+
             string consulta = @"
         SELECT 
             id_ptm AS [ID Prestamo], 
