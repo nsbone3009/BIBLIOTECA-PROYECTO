@@ -37,15 +37,7 @@ namespace Proyecto_Biblioteca_Poo
         private void CargarDatos()
         {
 
-            string consulta = @"
-        SELECT 
-            id_ptm AS [ID Prestamo], 
-            cedula_ltr AS [Cédula Lector], 
-            isbn_lb AS [ISBN Libro], 
-            fecha_prestamo AS [Fecha Préstamo], 
-            fecha_devolucio_programada AS [Fecha Devolución Programada] 
-        FROM Prestamos 
-        WHERE estado_ = 1";
+            string consulta = "select id_ptm,cedula_ltr,isbn_lb,fecha_prestamo,fecha_devolucio_programada from Prestamos where estado_ = 1";
 
             csConexionSQL database = new csConexionSQL();
             dgvPrestamos.DataSource = database.MostrarRegistros(consulta);

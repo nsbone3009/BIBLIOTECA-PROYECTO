@@ -82,18 +82,21 @@ namespace Proyecto_Biblioteca_Poo
 
             frmPantallaPrincipal frm = new frmPantallaPrincipal();
 
-            //    if (rol == "Bibliotecario")
-            //    {
-            //        frm.btnAdministracion.Visible = false;
-            //        frm.btnAdministracion.Enabled = false;
-            //    }
-            frm.Show();
-            this.Hide();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Credenciales incorrectas");
-            //}
+
+                if (rol == "Bibliotecario")
+                {
+                    frm.btnAdministracion.Visible = false;
+                    frm.btnAdministracion.Enabled = false;
+                }
+
+                frm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Credenciales incorrectas");
+            }
+
         }
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
