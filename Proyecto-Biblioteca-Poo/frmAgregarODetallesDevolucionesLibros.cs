@@ -14,17 +14,15 @@ namespace Proyecto_Biblioteca_Poo
     {
         static csConexionSQL obj = new csConexionSQL();
         static Random rnd = new Random(DateTime.Now.Millisecond);
+        frmListaPrestamosLibros prestamos = new frmListaPrestamosLibros();
         public frmAgregarODetallesDevolucionesLibros()
         {
             InitializeComponent();
         }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            new frmPantallaPrincipal().Show();
             this.Close();
         }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             frmListaPrestamosLibros frmLibros = new frmListaPrestamosLibros();
@@ -34,7 +32,6 @@ namespace Proyecto_Biblioteca_Poo
             frmLibros.ShowDialog();
             this.Close();
         }
-
         private void btnDevolverLibros_Click(object sender, EventArgs e)
         {
             if (txtISBN.Text != "")
@@ -52,15 +49,12 @@ namespace Proyecto_Biblioteca_Poo
         }
         private void ObtenerDato(string consulta, string isbn)
         {
-                int a = 0;
-            obj.AbrirConexion();
-            SqlCommand comando = new SqlCommand(consulta, obj.Conexion);
+            int cantidad = 0;
+            SqlConnection conexion = new SqlConnection(obj.cadenaConexion);conexion.Open();
+            SqlCommand comando = new SqlCommand(consulta, conexion);
             SqlDataReader leer = comando.ExecuteReader();
-            while (leer.Read())
-                a = leer.GetInt32(0);
-            a += 1;
-            obj.Update("update Libros set cantidad_lb='" + a + "' where isbn_lb =  '" + isbn.Trim() + "'");
-            obj.CerrarConexion();
+            if (leer.Read()) { cantidad = leer.GetInt32(0); }conexion.Close(); cantidad += 1;
+            obj.Update("update Libros set cantidad_lb='" + cantidad + "' where isbn_lb =  '" + isbn.Trim() + "'");
         }
         private void Limpiar_Y_Cargar()
         {

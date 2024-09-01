@@ -12,7 +12,7 @@ namespace Proyecto_Biblioteca_Poo
     internal class csConexionSQL
     {
         // Cadena de conexión que especifica el servidor, base de datos, y las credenciales de SQL Server.
-        private string cadenaConexion = @"Password=admin;Persist Security Info=True;User ID=admin;Initial Catalog=Biblioteca;Data Source=NIURLETH";
+        public string cadenaConexion = @"Server = DESKTOP-RJ6RQ3J\SQLEXPRESS; Database = Biblioteca; Integrated Security = True";
         private SqlConnection conexion;  // Objeto SqlConnection para manejar la conexión con SQL Server.
         // Propiedad que permite acceder al objeto SqlConnection desde fuera de la clase.
         public SqlConnection Conexion { get { return conexion; } }
@@ -66,7 +66,7 @@ namespace Proyecto_Biblioteca_Poo
             conexion.Open();                                          // Abre la conexión.
         }
       
-        //AGREGADO POR KHRIZ, SIRVE PARA EXTRAER UN CAMPOS EN ESPECIFICO DE UN REGISTRO
+        //AGREGADO POR KHRIZ, SIRVE PARA EXTRAER UN CAMPO EN ESPECIFICO DE UN REGISTRO
         public string Extraer(string consulta, string columna)
         {
             string resultado = "";
