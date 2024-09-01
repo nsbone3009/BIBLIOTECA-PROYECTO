@@ -205,7 +205,6 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnAgregarLector;
         public System.Windows.Forms.DataGridView dgvLectores;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label lbLibros;
@@ -215,5 +214,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        public System.Windows.Forms.Button btnAgregarLector;
     }
 }

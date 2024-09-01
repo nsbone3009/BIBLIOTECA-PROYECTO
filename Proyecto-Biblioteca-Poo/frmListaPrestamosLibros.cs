@@ -13,37 +13,37 @@ namespace Proyecto_Biblioteca_Poo
 {
     public partial class frmListaPrestamosLibros : Form
     {
-        static int idPrestamo; static string cedulaLector; static string isbnLibro;
-        static string fechaPrestamo; static string fechaDevolucion;
-
         public frmListaPrestamosLibros()
         {
             InitializeComponent();
             CargarDatos();
         }
-
         private void btnAgregarPrestamo_Click(object sender, EventArgs e)
         {
             frmAgregarODetallesPrestamosLibros formulario = new frmAgregarODetallesPrestamosLibros();
+            formulario.LabelText = "AGREGAR PRESTAMO";
             formulario.GuardarOModificar = true;
             formulario.ShowDialog();
             CargarDatos();
         }
-
         private void frmListaPrestamosLibros_Load(object sender, EventArgs e)
         {
             CargarDatos();
         }
         private void CargarDatos()
         {
-
-         string consulta = "select id_ptm,cedula_ltr,isbn_lb,fecha_prestamo,fecha_devolucio_programada from Prestamos where estado_ = 1";
-
+            string consulta = @"
+            SELECT 
+            id_ptm AS [ID Prestamo], 
+            cedula_ltr AS [Cédula Lector], 
+            isbn_lb AS [ISBN Libro], 
+            fecha_prestamo AS [Fecha Préstamo], 
+            fecha_devolucio_programada AS [Fecha Devolución Programada] 
+            FROM Prestamos 
+            WHERE estado_ = 1";
             csConexionSQL database = new csConexionSQL();
             dgvPrestamos.DataSource = database.MostrarRegistros(consulta);
-            //new csAjustarDataGridView().Ajustar(dgvPrestamos);
         }
-
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
         }
@@ -57,21 +57,16 @@ namespace Proyecto_Biblioteca_Poo
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione una fila primero.");
+                MessageBox.Show("Por favor, seleccione una fila primero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             CargarDatos();
         }
-        private void btnEliminarPrestamo_Click(object sender, EventArgs e)
-        {
-        }
-
         private void dgvPrestamos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string consulta = dgvPrestamos.CurrentRow.Cells[2].Value.ToString();
             string NuevaConsulta = "select L.titulo_lb,L.isbn_lb,Le.nombres_ltr,Le.cedula_ltr,D.fecha_prestamo,D.fecha_devolucion_programada from Devoluciones as D inner join[Libros] as L on D.isbn_lb=[L].isbn_lb inner join Lectores as Le  on d.cedula_ltr=[Le].cedula_ltr where D.isbn_lb='" + consulta + "'";
             csConexionSQL conector = new csConexionSQL();
             SqlDataReader lector = conector.SelectLeer(NuevaConsulta);
-            string Titulo, Isbn, nombre, cedula, fechaPrestamo, fechaDevolucion;
             if (lector.Read())
             {
                 frmAgregarODetallesDevolucionesLibros datitos = new frmAgregarODetallesDevolucionesLibros();

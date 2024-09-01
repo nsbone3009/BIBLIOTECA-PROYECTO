@@ -34,8 +34,6 @@
             this.lbLibros = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvLibros = new System.Windows.Forms.DataGridView();
-            this.btnAgregarLibro = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +41,8 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAgregarLibro = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibros)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,42 +111,6 @@
             this.dgvLibros.TabIndex = 7;
             this.dgvLibros.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLibros_CellContentDoubleClick);
             // 
-            // btnAgregarLibro
-            // 
-            this.btnAgregarLibro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregarLibro.BackgroundImage")));
-            this.btnAgregarLibro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarLibro.FlatAppearance.BorderSize = 0;
-            this.btnAgregarLibro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAgregarLibro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAgregarLibro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarLibro.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarLibro.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarLibro.Location = new System.Drawing.Point(23, 550);
-            this.btnAgregarLibro.Name = "btnAgregarLibro";
-            this.btnAgregarLibro.Size = new System.Drawing.Size(180, 50);
-            this.btnAgregarLibro.TabIndex = 8;
-            this.btnAgregarLibro.Text = "AGREGAR";
-            this.btnAgregarLibro.UseVisualStyleBackColor = true;
-            this.btnAgregarLibro.Click += new System.EventHandler(this.btnAgregarLibro_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
-            this.btnBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.BackgroundImage")));
-            this.btnBuscar.Enabled = false;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(23, 141);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(91, 35);
-            this.btnBuscar.TabIndex = 9;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "TITULO";
@@ -189,6 +153,42 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
+            // btnAgregarLibro
+            // 
+            this.btnAgregarLibro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregarLibro.BackgroundImage")));
+            this.btnAgregarLibro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarLibro.FlatAppearance.BorderSize = 0;
+            this.btnAgregarLibro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarLibro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarLibro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarLibro.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarLibro.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarLibro.Location = new System.Drawing.Point(23, 550);
+            this.btnAgregarLibro.Name = "btnAgregarLibro";
+            this.btnAgregarLibro.Size = new System.Drawing.Size(180, 50);
+            this.btnAgregarLibro.TabIndex = 8;
+            this.btnAgregarLibro.Text = "AGREGAR";
+            this.btnAgregarLibro.UseVisualStyleBackColor = true;
+            this.btnAgregarLibro.Click += new System.EventHandler(this.btnAgregarLibro_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.BackgroundImage")));
+            this.btnBuscar.Enabled = false;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Location = new System.Drawing.Point(23, 141);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(91, 35);
+            this.btnBuscar.TabIndex = 9;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            // 
             // frmListaLibros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,7 +216,6 @@
 
         private System.Windows.Forms.Label lbLibros;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.Button btnAgregarLibro;
         private System.Windows.Forms.Button btnBuscar;
         public System.Windows.Forms.DataGridView dgvLibros;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -226,5 +225,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        public System.Windows.Forms.Button btnAgregarLibro;
     }
 }

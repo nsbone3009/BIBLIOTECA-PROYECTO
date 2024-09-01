@@ -25,6 +25,11 @@ namespace Proyecto_Biblioteca_Poo
         static Random random = new Random(DateTime.Now.Millisecond);
         csPrestamos prestamos;
         static int numeroAleatorio = random.Next(10000000, 100000000);
+        public string LabelText
+        {
+            get { return lbTituloVentana.Text; }
+            set { lbTituloVentana.Text = value; }
+        }
         public frmAgregarODetallesPrestamosLibros(string Cedula, string Nombre)
         {
             InitializeComponent();
@@ -37,7 +42,6 @@ namespace Proyecto_Biblioteca_Poo
             // En base a la id llamo un datatable de la bd mediante una consulta y la filtro
             //para extraer los datos necesarios.
             prestamos = new csPrestamos();
-
             // Llamar al método ObtenerDatosPrestamo
             DataTable dataTable = prestamos.ObtenerDatosPrestamo(idPrestamo);
 
@@ -51,7 +55,7 @@ namespace Proyecto_Biblioteca_Poo
                 tituloLibro = row["titulo_lb"].ToString();
                 fechaPrestamo = row["fecha_prestamo"].ToString();
                 fechaDevolucionProgramada = row["fecha_devolucio_programada"].ToString();
-                
+
                 txtCedula.Text = cedulaLector;
                 txtNombreLector.Text = nombreLector;
                 txtISBN.Text = isbnLibro;
@@ -61,7 +65,8 @@ namespace Proyecto_Biblioteca_Poo
             }
             else
             {
-                MessageBox.Show("No se encontraron registros para el ID de préstamo especificado.");
+                MessageBox.Show("No se encontraron registros para el ID de préstamo especificado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
         }
         public frmAgregarODetallesPrestamosLibros(string cedula, string isbn, string fechaPrestamo, string fechaDevolucion, int idPrestamo)
@@ -87,12 +92,14 @@ namespace Proyecto_Biblioteca_Poo
         private void btnSeleccionarLector_Click(object sender, EventArgs e)
         {
             frmListaLectores frmLectores = new frmListaLectores();
+            frmLectores.btnAgregarLector.Visible = false;
             frmLectores.Owner = this;
             frmLectores.ShowDialog();
         }
         private void btnSeleccionarLibro_Click(object sender, EventArgs e)
         {
             frmListaLibros frmLibros = new frmListaLibros();
+            frmLibros.btnAgregarLibro.Visible = false;
             frmLibros.Owner = this;
             frmLibros.ShowDialog();
         }
@@ -100,14 +107,12 @@ namespace Proyecto_Biblioteca_Poo
         {
             calDevolucion.Visible = !calDevolucion.Visible;
         }
-
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
             DateTime fechaSeleccionada = calDevolucion.SelectionStart;
             txtFechaDevolucion.Text = fechaSeleccionada.ToString("dd-MM-yyyy");
             calDevolucion.Visible = false;
         }
-
         private void btnRegistrarPrestamo_Click(object sender, EventArgs e)
         {
             try
@@ -137,7 +142,7 @@ namespace Proyecto_Biblioteca_Poo
                         this.Close();
                     }
                 }
-                else 
+                else
                 {
                     ManejoPrestamo = new csPrestamos();
                     int cedula_ltr = int.Parse(txtCedula.Text);
@@ -145,9 +150,11 @@ namespace Proyecto_Biblioteca_Poo
                     string FechaP = txtFechaPrestamo.Text;
                     string FechaD = txtFechaDevolucion.Text;
                     if (ManejoPrestamo.EditarPrestamo(IDPrestamo, cedula_ltr, isbn_lb, FechaP, FechaD))
-                        MessageBox.Show("Editado correctamente.");
-                   
-                    else MessageBox.Show("Ha ocurrido un error al editar.");
+                        MessageBox.Show("Prestamo editado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                    else MessageBox.Show("Ha ocurrido un error al editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
                 this.Close();
             }
@@ -155,7 +162,7 @@ namespace Proyecto_Biblioteca_Poo
             {
                 MessageBox.Show("Error al registrar el préstamo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
     }
 }
