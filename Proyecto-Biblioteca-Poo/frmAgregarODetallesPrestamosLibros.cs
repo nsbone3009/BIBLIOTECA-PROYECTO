@@ -25,25 +25,19 @@ namespace Proyecto_Biblioteca_Poo
         static Random random = new Random(DateTime.Now.Millisecond);
         csPrestamos prestamos;
         static int numeroAleatorio = random.Next(10000000, 100000000);
-        //Cambiar nombre del lbl
-        public string LabelText
-        {
-            get { return lbTituloVentana.Text; }
-            set { lbTituloVentana.Text = value; }
-        }
         public frmAgregarODetallesPrestamosLibros(string Cedula, string Nombre)
         {
             InitializeComponent();
             txtCedula.Text = Cedula;
             txtNombreLector.Text = Nombre;
         }
-        
         public frmAgregarODetallesPrestamosLibros(int idPrestamo)
         {
             InitializeComponent();
             // En base a la id llamo un datatable de la bd mediante una consulta y la filtro
             //para extraer los datos necesarios.
             prestamos = new csPrestamos();
+
             // Llamar al método ObtenerDatosPrestamo
             DataTable dataTable = prestamos.ObtenerDatosPrestamo(idPrestamo);
 
@@ -67,8 +61,7 @@ namespace Proyecto_Biblioteca_Poo
             }
             else
             {
-                MessageBox.Show("No se encontraron registros para el ID de préstamo especificado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("No se encontraron registros para el ID de préstamo especificado.");
             }
         }
         public frmAgregarODetallesPrestamosLibros(string cedula, string isbn, string fechaPrestamo, string fechaDevolucion, int idPrestamo)
@@ -94,14 +87,12 @@ namespace Proyecto_Biblioteca_Poo
         private void btnSeleccionarLector_Click(object sender, EventArgs e)
         {
             frmListaLectores frmLectores = new frmListaLectores();
-            frmLectores.BtnAgregarLectorVisible = false;
             frmLectores.Owner = this;
             frmLectores.ShowDialog();
         }
         private void btnSeleccionarLibro_Click(object sender, EventArgs e)
         {
             frmListaLibros frmLibros = new frmListaLibros();
-            frmLibros.BtnAgregarLibroVisible = false;
             frmLibros.Owner = this;
             frmLibros.ShowDialog();
         }
@@ -154,11 +145,9 @@ namespace Proyecto_Biblioteca_Poo
                     string FechaP = txtFechaPrestamo.Text;
                     string FechaD = txtFechaDevolucion.Text;
                     if (ManejoPrestamo.EditarPrestamo(IDPrestamo, cedula_ltr, isbn_lb, FechaP, FechaD))
-                        MessageBox.Show("Prestamo editado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-                    else MessageBox.Show("Ha ocurrido un error al editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                        MessageBox.Show("Editado correctamente.");
+                   
+                    else MessageBox.Show("Ha ocurrido un error al editar.");
                 }
                 this.Close();
             }

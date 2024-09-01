@@ -27,10 +27,7 @@ namespace Proyecto_Biblioteca_Poo
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            frmListaPrestamosLibros frmLibros = new frmListaPrestamosLibros();
-            frmLibros.BtnAgregarPrestamoVisible = false;
-            frmLibros.BtnModificarPrestamoVisible = false;
-            frmLibros.ShowDialog();
+            new frmListaPrestamosLibros().ShowDialog();
             this.Close();
         }
 
@@ -43,14 +40,12 @@ namespace Proyecto_Biblioteca_Poo
                 obj.Update("insert into Movimientos(id_mvt, cedula_usr, isbn_lb, fecha_mvt, hora_mvt, descipcion_mvt) values ('" + a + "','" + 67890123 + "','" + txtISBN.Text.Trim() + "','" + txtFechaActual.Text.Trim() + "','" + DateTime.Now.ToString("HH:mm:ss") + "','" + "Se devolvió un libro" + "')");
                 obj.Update("update Prestamos set estado_ = 0 where isbn_lb =  '" + txtISBN.Text.Trim() + "'");
                 ObtenerDato("select cantidad_lb from Libros where isbn_lb =  '" + txtISBN.Text.Trim() + "'", txtISBN.Text.Trim());
-                MessageBox.Show("Libro devuelto correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("Libro devuelto correctamente");
 
                 Limpiar_Y_Cargar();
-                this.Close();
             }
             else
-                MessageBox.Show("Primero seleccione un libro.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Primero Seleccione un libro");
         }
         private void ObtenerDato(string consulta, string isbn)
         {

@@ -217,9 +217,9 @@
             this.lbNombreEmpresa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbNombreEmpresa.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNombreEmpresa.ForeColor = System.Drawing.Color.White;
-            this.lbNombreEmpresa.Location = new System.Drawing.Point(169, 497);
+            this.lbNombreEmpresa.Location = new System.Drawing.Point(120, 497);
             this.lbNombreEmpresa.Name = "lbNombreEmpresa";
-            this.lbNombreEmpresa.Size = new System.Drawing.Size(167, 32);
+            this.lbNombreEmpresa.Size = new System.Drawing.Size(168, 32);
             this.lbNombreEmpresa.TabIndex = 15;
             this.lbNombreEmpresa.Text = "XXXXXXXXX";
             // 
