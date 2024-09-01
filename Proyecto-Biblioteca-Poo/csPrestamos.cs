@@ -20,7 +20,7 @@ namespace Proyecto_Biblioteca_Poo
         public DataTable ObtenerDatosPrestamo(int idPrestamo)
         {
             // Consulta SQL para obtener los datos del préstamo
-            string query = @"SELECT P.id_ptm, Le.cedula_ltr, Le.nombres_ltr, L.isbn_lb, L.titulo_lb, 
+            string query = $@"SELECT P.id_ptm, Le.cedula_ltr, Le.nombres_ltr, L.isbn_lb, L.titulo_lb, 
                               P.fecha_prestamo, P.fecha_devolucio_programada 
                               FROM Prestamos AS P 
                               JOIN Libros AS L ON P.isbn_lb = L.isbn_lb 
