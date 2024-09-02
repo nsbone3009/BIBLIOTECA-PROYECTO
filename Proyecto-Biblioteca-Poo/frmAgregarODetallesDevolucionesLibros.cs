@@ -14,7 +14,6 @@ namespace Proyecto_Biblioteca_Poo
     {
         static csConexionSQL obj = new csConexionSQL();
         static Random rnd = new Random(DateTime.Now.Millisecond);
-        frmListaPrestamosLibros prestamos = new frmListaPrestamosLibros();
         public frmAgregarODetallesDevolucionesLibros()
         {
             InitializeComponent();
@@ -25,12 +24,12 @@ namespace Proyecto_Biblioteca_Poo
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            frmListaPrestamosLibros frmLibros = new frmListaPrestamosLibros();
+            frmListaPrestamosLibros frmLibros = frmListaPrestamosLibros.Validacion();
+            this.AddOwnedForm(frmLibros);
             frmLibros.btnAgregarPrestamo.Visible = false;
             frmLibros.btnModificarPrestamo.Visible = false;
             frmLibros.bandera = true;
             frmLibros.ShowDialog();
-            this.Close();
         }
         private void btnDevolverLibros_Click(object sender, EventArgs e)
         {

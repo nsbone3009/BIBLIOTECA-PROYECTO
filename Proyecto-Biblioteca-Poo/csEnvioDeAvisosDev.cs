@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
+
 namespace Proyecto_Biblioteca_Poo
 {
     class csEnvioDeAvisosDev
@@ -40,7 +41,6 @@ namespace Proyecto_Biblioteca_Poo
                 }
             }
         }
-
         public void EnviarCorreo(string correo, string nombre, string isbn)
         {
             frmPantallaPrincipal obj = new frmPantallaPrincipal();

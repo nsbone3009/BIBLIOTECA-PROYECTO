@@ -14,15 +14,18 @@ namespace Proyecto_Biblioteca_Poo
 {
     public partial class frmPantallaPrincipal : Form
     {
-        static frmListaLibros frmListaLibros = new frmListaLibros();
-        static frmListaLectores frmListaLectores = new frmListaLectores();
-        static frmListaPrestamosLibros frmListaPrestamosLibros = new frmListaPrestamosLibros();
-        static frmListaDevolucionesLibros frmListaDevolucionesLibros = new frmListaDevolucionesLibros();
-        static frmConfiguracionSistema frmConfiguracion = new frmConfiguracionSistema();
+        static frmPantallaPrincipal instancia = null;
+        public static frmPantallaPrincipal Validacion()
+        {
+            if (instancia == null)
+                instancia = new frmPantallaPrincipal();
+            return instancia;
+        }
+
         static csEnvioDeAvisosDev avisos = new csEnvioDeAvisosDev();
-        //Hola
         static bool clickLibros = false, clickLectores = false, clickAdministracion = false;
         private Timer timer;
+
         public frmPantallaPrincipal()
         {
             InitializeComponent();
@@ -48,7 +51,8 @@ namespace Proyecto_Biblioteca_Poo
             lbConfiguracion.Visible = false;
             lbUsuarios.Visible = false;
             MostrarLogoNombre();
-            LlamarFormulario(frmListaLibros);
+            frmListaLibros frm = frmListaLibros.Validacion();
+            LlamarFormulario(frm);
         }
         public void MostrarLogoNombre()
         {
@@ -136,19 +140,25 @@ namespace Proyecto_Biblioteca_Poo
         }
         private void lbListaLibros_Click(object sender, EventArgs e)
         {
-            LlamarFormulario(frmListaLibros);
+            frmListaLibros frm = frmListaLibros.Validacion();
+            frm.MostrarLibros();
+            LlamarFormulario(frm);
         }
         private void lbPrestamosLibros_Click(object sender, EventArgs e)
         {
-            LlamarFormulario(frmListaPrestamosLibros);
+            frmListaPrestamosLibros frm = frmListaPrestamosLibros.Validacion();
+            LlamarFormulario(frm);
         }
         private void lbDevolucionesLibros_Click(object sender, EventArgs e)
         {
-            LlamarFormulario(frmListaDevolucionesLibros);
+            frmListaDevolucionesLibros frm = frmListaDevolucionesLibros.Validacion();
+            frm.MostrarDevolucines();
+            LlamarFormulario(frm);
         }
         private void lbListaLectores_Click(object sender, EventArgs e)
         {
-            LlamarFormulario(frmListaLectores);
+            frmListaLectores frm = frmListaLectores.Validacion();
+            LlamarFormulario(frm);
         }
         private void LlamarFormulario(Form formulario)
         {
@@ -156,20 +166,18 @@ namespace Proyecto_Biblioteca_Poo
             formulario.TopLevel = false;
             plPantalla.Controls.Add(formulario);
             formulario.Show();
-        }
+        } //Revise un formulario, limpia el panel, agrega y muestra
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            new frmValidacionEntrada().Show();
+            frmValidacionEntrada frm = frmValidacionEntrada.Validacion();
+            frm.Show();
             this.Hide();
         }
         private void lbConfiguracion_Click(object sender, EventArgs e)
         {
-            plPantalla.Controls.Clear();
-            this.AddOwnedForm(frmConfiguracion);
-            frmConfiguracion.TopLevel = false;
-            plPantalla.Controls.Add(frmConfiguracion);
-            frmConfiguracion.Mostrar();
-            frmConfiguracion.Show();
+            frmConfiguracionSistema frm = frmConfiguracionSistema.Validacion();
+            frm.Mostrar();
+            LlamarFormulario(frm);
         } 
     }
 }

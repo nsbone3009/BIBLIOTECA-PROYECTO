@@ -206,6 +206,7 @@
             // 
             this.txtFechaN.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFechaN.Location = new System.Drawing.Point(569, 129);
+            this.txtFechaN.MaxLength = 10;
             this.txtFechaN.Name = "txtFechaN";
             this.txtFechaN.Size = new System.Drawing.Size(154, 35);
             this.txtFechaN.TabIndex = 56;
@@ -223,6 +224,7 @@
             // 
             this.txtSancion.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSancion.Location = new System.Drawing.Point(571, 218);
+            this.txtSancion.MaxLength = 3;
             this.txtSancion.Name = "txtSancion";
             this.txtSancion.Size = new System.Drawing.Size(152, 35);
             this.txtSancion.TabIndex = 54;
@@ -231,6 +233,7 @@
             // 
             this.txtCedula.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCedula.Location = new System.Drawing.Point(537, 303);
+            this.txtCedula.MaxLength = 10;
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(186, 35);
             this.txtCedula.TabIndex = 53;

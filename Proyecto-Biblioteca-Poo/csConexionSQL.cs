@@ -12,7 +12,7 @@ namespace Proyecto_Biblioteca_Poo
     internal class csConexionSQL
     {
         // Cadena de conexión que especifica el servidor, base de datos, y las credenciales de SQL Server.
-        public string cadenaConexion = @"Server = DESKTOP-RJ6RQ3J\SQLEXPRESS; Database = Biblioteca; Integrated Security = True";
+        public string cadenaConexion = @"Server = DESKTOP-T767FTN\KHRIZ; Database = Biblioteca; User = Administrador; Password = 1111";
         private SqlConnection conexion;  // Objeto SqlConnection para manejar la conexión con SQL Server.
         // Propiedad que permite acceder al objeto SqlConnection desde fuera de la clase.
         public SqlConnection Conexion { get { return conexion; } }

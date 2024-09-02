@@ -14,6 +14,13 @@ namespace Proyecto_Biblioteca_Poo
 {
     public partial class frmValidacionEntrada : Form
     {
+        static frmValidacionEntrada instancia = null;
+        public static frmValidacionEntrada Validacion()
+        {
+            if (instancia == null)
+                instancia = new frmValidacionEntrada();
+            return instancia;
+        }
         public frmValidacionEntrada()
         {
             InitializeComponent();
@@ -74,13 +81,13 @@ namespace Proyecto_Biblioteca_Poo
         }
         private void Ingreso(string usu, string contra)
         {
-          //csLogin login = new csLogin();
-          //  if (login.VerificarLogin(usu, contra))
-          //  {
-          //      string cedulaUsuario = login.Cedula;
-          //      string rol = login.ObtenerRolUsuario(cedulaUsuario.Trim());
+            //csLogin login = new csLogin();
+            //  if (login.VerificarLogin(usu, contra))
+            //  {
+            //      string cedulaUsuario = login.Cedula;
+            //      string rol = login.ObtenerRolUsuario(cedulaUsuario.Trim());
 
-                frmPantallaPrincipal frm = new frmPantallaPrincipal();
+                frmPantallaPrincipal frm = frmPantallaPrincipal.Validacion();
 
                 //if (rol.Trim() == "Bibliotecario")
                 //{

@@ -16,6 +16,14 @@ namespace Proyecto_Biblioteca_Poo
         csPrestamos prestamo = new csPrestamos();
         csConexionSQL database = new csConexionSQL();
         public bool bandera = false;
+
+        static frmListaPrestamosLibros instancia = null;
+        public static frmListaPrestamosLibros Validacion()
+        {
+            if (instancia == null)
+                instancia = new frmListaPrestamosLibros();
+            return instancia;
+        }
         public frmListaPrestamosLibros()
         {
             InitializeComponent();
@@ -55,44 +63,43 @@ namespace Proyecto_Biblioteca_Poo
             }
             CargarDatos();
         }
-        private void dgvPrestamos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvPrestamos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (bandera == true)
+            if (bandera)
             {
-                try
+                frmAgregarODetallesDevolucionesLibros datitos = Owner as frmAgregarODetallesDevolucionesLibros;
+                string consulta = dgvPrestamos.Rows[e.RowIndex].Cells[2].Value.ToString();
+                string NuevaConsulta = "select L.titulo_lb,L.isbn_lb,Le.nombres_ltr,Le.cedula_ltr,D.fecha_prestamo,D.fecha_devolucion_programada from Devoluciones as D inner join[Libros] as L on D.isbn_lb=[L].isbn_lb inner join Lectores as Le  on d.cedula_ltr=[Le].cedula_ltr where D.isbn_lb='" + consulta + "'";
+                csConexionSQL conector = new csConexionSQL();
+                SqlDataReader lector = conector.SelectLeer(NuevaConsulta);
+                if (lector.Read())
                 {
-                    string consulta = dgvPrestamos.CurrentRow.Cells[2].Value.ToString();
-                    string NuevaConsulta = "select L.titulo_lb,L.isbn_lb,Le.nombres_ltr,Le.cedula_ltr,D.fecha_prestamo,D.fecha_devolucion_programada from Devoluciones as D inner join[Libros] as L on D.isbn_lb=[L].isbn_lb inner join Lectores as Le  on d.cedula_ltr=[Le].cedula_ltr where D.isbn_lb='" + consulta + "'";
-                    csConexionSQL conector = new csConexionSQL();
-                    SqlDataReader lector = conector.SelectLeer(NuevaConsulta);
-                    if (lector.Read())
-                    {
-                        frmAgregarODetallesDevolucionesLibros datitos = new frmAgregarODetallesDevolucionesLibros();
-                        datitos.txtTitulo.Text = lector["titulo_lb"].ToString().Trim();
-                        datitos.txtLector.Text = lector["nombres_ltr"].ToString();
-                        datitos.txtCedula.Text = lector["cedula_ltr"].ToString().Trim();
-                        datitos.txtISBN.Text = lector["isbn_lb"].ToString().Trim();
-                        datitos.txtFechaPrestamo.Text = lector["fecha_prestamo"].ToString().Trim();
-                        datitos.txtFechaDevolucion.Text = lector["fecha_devolucion_programada"].ToString().Trim();
-                        datitos.txtFechaActual.Text = DateTime.Now.ToString("yyyy-MM-dd");
-                        datitos.ShowDialog();
-                        this.Close();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error en el dgvprestamo:" + ex);
+                    datitos.txtTitulo.Text = lector["titulo_lb"].ToString().Trim();
+                    datitos.txtLector.Text = lector["nombres_ltr"].ToString();
+                    datitos.txtCedula.Text = lector["cedula_ltr"].ToString().Trim();
+                    datitos.txtISBN.Text = lector["isbn_lb"].ToString().Trim();
+                    datitos.txtFechaPrestamo.Text = lector["fecha_prestamo"].ToString().Trim();
+                    datitos.txtFechaDevolucion.Text = lector["fecha_devolucion_programada"].ToString().Trim();
+                    datitos.txtFechaActual.Text = DateTime.Now.ToString("yyyy-MM-dd"); 
                 }
             }
+            this.Close();
         }
-        private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
+        private void txtBuscar_TextChanged_1(object sender, EventArgs e)
         {
-            if (txtBuscar.Text.Length > 3)
-            {
-                dgvPrestamos.DataSource = database.MostrarRegistros("SELECT id_ptm as [ID PRESTAMO], cedula_ltr as [CEDULA LECTOR], isbn_lb as [ISBN LIBRO], fecha_prestamo as [FECHA PRESTAMO], fecha_devolucio_programada as [FECHA DEVOLUCION] FROM Prestamos where estado_=1 and CONVERT(varchar,cedula_ltr) like '%" + txtBuscar.Text + "%'  or isbn_lb like '%" + txtBuscar.Text + "%'");
-            }
-            if (txtBuscar.Text.Length == 0)
-                CargarDatos();
+            //if (txtBuscar.Text.Length > 3)
+            //{
+            //    string consulta = "Select titulo_lb, autor_es_lb, editorial_lb, genero_lb, año_publicacion_lb, cantidad_lb, sinopsis_lb " +
+            //        "from Libros where titulo_lb like '%" + txtBuscar.Text + "%' or autor_es_lb like '%" + txtBuscar.Text + "%' or editorial_lb like '%" + txtBuscar.Text + "%' " +
+            //        "or genero_lb like '%" + txtBuscar.Text + "%'";
+            //    dgvPrestamos.Rows.Clear();
+            //    dgvPrestamos = new csAjustarDataGridView().Ajustar(dgvPrestamos, consulta);
+            //}
+            //if (txtBuscar.Text.Length == 0)
+            //{
+            //    dgvPrestamos.Rows.Clear();
+            //    CargarDatos();
+            //}
         }
     }
 }

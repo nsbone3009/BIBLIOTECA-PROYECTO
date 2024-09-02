@@ -242,6 +242,7 @@
             // 
             this.txtPublicacion.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPublicacion.Location = new System.Drawing.Point(48, 290);
+            this.txtPublicacion.MaxLength = 4;
             this.txtPublicacion.Name = "txtPublicacion";
             this.txtPublicacion.Size = new System.Drawing.Size(118, 35);
             this.txtPublicacion.TabIndex = 8;
@@ -272,6 +273,7 @@
             // 
             this.txtIsbn.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIsbn.Location = new System.Drawing.Point(278, 290);
+            this.txtIsbn.MaxLength = 17;
             this.txtIsbn.Name = "txtIsbn";
             this.txtIsbn.Size = new System.Drawing.Size(214, 35);
             this.txtIsbn.TabIndex = 53;

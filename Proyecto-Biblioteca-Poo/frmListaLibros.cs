@@ -14,6 +14,13 @@ namespace Proyecto_Biblioteca_Poo
     {
         public bool validacion = false;
         public bool bandera = false;
+        static frmListaLibros instancia = null;
+        public static frmListaLibros Validacion()
+        {
+            if (instancia == null)
+                instancia = new frmListaLibros();
+            return instancia;
+        }
         public frmListaLibros()
         {
             InitializeComponent();
